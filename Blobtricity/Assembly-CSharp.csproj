@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Dennis\Scripts\PlayerControls.cs" />
     <Compile Include="Assets\Dennis\Scripts\SwitchLights.cs" />
     <Compile Include="Assets\Dennis\Scripts\UIManagement.cs" />
     <Compile Include="Assets\Dennis\Standard Assets\Cameras\Scripts\AbstractTargetFollower.cs" />
@@ -126,7 +127,6 @@
     <Compile Include="Assets\Dennis\Standard Assets\Utility\TimedObjectDestructor.cs" />
     <Compile Include="Assets\Dennis\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\Dennis\Standard Assets\Utility\WaypointProgressTracker.cs" />
-    <Compile Include="Assets\PlayerControls.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

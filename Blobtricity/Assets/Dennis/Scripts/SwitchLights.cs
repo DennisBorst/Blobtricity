@@ -6,15 +6,17 @@ public class SwitchLights : MonoBehaviour
 {
     [SerializeField] private UIManagement uiManagement;
 
-    [SerializeField] private Material lightMaterial;
     [SerializeField] private int decreaseEnergy;
+
+    [SerializeField] private Material lightOnMaterial;
+    [SerializeField] private Material lightOffMaterial;
+    [SerializeField] private MeshRenderer[] normalColor;
 
     private Animator animationSwitch;
     private bool lightSwitched = true;
 
     private void Start()
     {
-        lightMaterial.color = Color.yellow;
         animationSwitch = GetComponent<Animator>();
     }
 
@@ -31,14 +33,21 @@ public class SwitchLights : MonoBehaviour
 
     private void SwitchLight()
     {
-        Debug.Log("light is switched");
-        if(lightMaterial.color == Color.white)
+        for (int i = 0; i < normalColor.Length; i++)
         {
-            lightMaterial.color = Color.yellow;
+            normalColor[i].material = lightOffMaterial;
+        }
+
+        /*
+        Debug.Log("light is switched");
+        if(normalColor.material == lightOffMaterial)
+        {
+            normalColor.material = lightOnMaterial;
         }
         else
         {
-            lightMaterial.color = Color.white;
+            
         }
+        */
     }
 }
