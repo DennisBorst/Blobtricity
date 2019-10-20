@@ -4,22 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class EnergyMeter : MonoBehaviour
+public class UIManagement : MonoBehaviour
 {
+    [Header("Energy Related")]
     [SerializeField] private Slider energySlider;
     [SerializeField] private int sliderValue;
 
+    [Header("Time Related")]
+    [SerializeField] private float timeSpeed;
     [SerializeField] private TextMeshProUGUI timerUI;
-    [SerializeField] private float timer;
+    private float timer;
     [SerializeField] private int timerMinutes;
     [SerializeField] private float timerHours;
 
+    [Header("Sun Related")]
     [SerializeField] private GameObject sunLight;
-    [SerializeField] private int sunLightRotation = 0;
 
     private void Start()
     {
         energySlider.maxValue = sliderValue;
+        sunLight.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     //Everything about the EnergySlider
@@ -50,7 +54,6 @@ public class EnergyMeter : MonoBehaviour
         {
             timerMinutes = 0;
             timerHours++;
-            sunLightRotation += 10;
         }
 
         if(timerHours >= 24)
@@ -67,12 +70,12 @@ public class EnergyMeter : MonoBehaviour
 
     private void SunRotation()
     {
-        sunLight.transform.Rotate(0.015f, sunLight.transform.rotation.y, sunLight.transform.rotation.z);
+        sunLight.transform.Rotate(0.00409f * timeSpeed, sunLight.transform.rotation.y, sunLight.transform.rotation.z);
     }
 
     private float Timer(float timer)
     {
-        timer += Time.deltaTime * 4;
+        timer += Time.deltaTime * timeSpeed;
         return timer;
     }
 }

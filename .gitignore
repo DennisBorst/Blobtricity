@@ -1,0 +1,6 @@
+*.bin
+*.suo
+*.user
+Blobtricity/obj
+Blobtricity/Temp
+Blobtricity/Library

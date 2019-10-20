@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwitchLights : MonoBehaviour
 {
-    [SerializeField] private EnergyMeter energyMeter;
+    [SerializeField] private UIManagement uiManagement;
 
     [SerializeField] private Material lightMaterial;
     [SerializeField] private int decreaseEnergy;
@@ -24,7 +24,7 @@ public class SwitchLights : MonoBehaviour
         {
             lightSwitched = false;
             animationSwitch.Play("LightSwitch");
-            energyMeter.DecreaseEnergy(decreaseEnergy);
+            uiManagement.DecreaseEnergy(decreaseEnergy);
             SwitchLight();
         }
     }

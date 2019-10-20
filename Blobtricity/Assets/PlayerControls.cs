@@ -5,16 +5,17 @@ using UnityEngine;
 public class PlayerControls : MonoBehaviour
 {
 
-    [SerializeField] private Camera mainCamera;
-    [SerializeField] private Camera mapCamera;
+    [SerializeField] private GameObject mainCamera;
+    [SerializeField] private GameObject mapCamera;
 
+    private UnityStandardAssets.Characters.FirstPerson.FirstPersonController firstPersonController;
     private bool IsCheckingMap;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        firstPersonController = GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();
     }
 
     // Update is called once per frame
@@ -41,16 +42,15 @@ public class PlayerControls : MonoBehaviour
     {
         if (IsCheckingMap)
         {
-            mainCamera.enabled = false;
-            mapCamera.enabled = true;
-
+            firstPersonController.enabled = false;
+            mainCamera.SetActive(false);
+            mapCamera.SetActive(true);
         }
         else
         {
-            mainCamera.enabled = true;
-            mapCamera.enabled = false;
-
-
+            firstPersonController.enabled = true;
+            mainCamera.SetActive(true);
+            mapCamera.SetActive(false);
         }
     }
 
