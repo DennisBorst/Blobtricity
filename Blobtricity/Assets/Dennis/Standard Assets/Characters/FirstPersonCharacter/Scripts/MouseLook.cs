@@ -27,6 +27,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_CameraTargetRot = camera.localRotation;
         }
 
+        public void EnableMouse()
+        {
+            m_cursorIsLocked = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
 
         public void LookRotation(Transform character, Transform camera)
         {
