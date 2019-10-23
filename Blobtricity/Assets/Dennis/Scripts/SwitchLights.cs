@@ -13,7 +13,7 @@ public class SwitchLights : MonoBehaviour
     [SerializeField] private MeshRenderer[] normalColor;
 
     private Animator animationSwitch;
-    private bool lightSwitched = true;
+    private bool lightSwitched = false;
 
     private void Start()
     {
@@ -22,9 +22,9 @@ public class SwitchLights : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyUp(KeyCode.E) && lightSwitched)
+        if (Input.GetKeyUp(KeyCode.E) && !lightSwitched)
         {
-            lightSwitched = false;
+            lightSwitched = true;
             animationSwitch.Play("LightSwitch");
             uiManagement.DecreaseEnergy(decreaseEnergy);
             SwitchLight();

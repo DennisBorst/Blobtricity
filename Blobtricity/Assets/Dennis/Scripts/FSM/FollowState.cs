@@ -33,6 +33,8 @@ public class FollowState : State
     public override void OnExit()
     {
         Debug.Log("Exit Time");
+        _iUser.IsBusyFlip();
+
     }
 
     public override void OnUpdate()
@@ -77,11 +79,12 @@ public class FollowState : State
         finalPostion = hit.position;
         Debug.Log(finalPostion);
 
-        UIManagement.Instance.DrawDestinationVisual(finalPostion);
+        UIManagement.Instance.DrawDestinationVisual(finalPostion, 1);
     }
 
     private void DestinationReached()
     {
+        fsm.SwitchState(StateEnum.Done);
         Debug.Log("I have made it to my destination");
     }
 }

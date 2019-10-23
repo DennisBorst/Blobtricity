@@ -8,8 +8,10 @@ public class UIManagement : MonoBehaviour
 {
     [Header("Energy Related")]
     [SerializeField] private Slider energySlider;
-    [SerializeField] private int maxSliderValue;
-    [SerializeField] private int currentSliderValue;
+    [SerializeField] private TextMeshProUGUI energyPercentageUI;
+    [SerializeField] private float maxSliderValue;
+    private float currentSliderValue;
+    private float energyPercentage;
 
     [Header("Time Related")]
     [SerializeField] private TextMeshProUGUI timerUI;
@@ -23,11 +25,15 @@ public class UIManagement : MonoBehaviour
     private int sunPosition;
 
     [Header("Blob stuff")]
-    [SerializeField] private GameObject finalDestinationVisual;
+    [SerializeField] private GameObject finalDestinationGoogleMaps;
+    [SerializeField] private GameObject finalDestinationNetflix;
 
     private void Start()
     {
         energySlider.maxValue = maxSliderValue;
+        energySlider.value = maxSliderValue;
+        currentSliderValue = maxSliderValue;
+
         timerHours = LevelManager.Instance.beginHour;
 
         if(timerHours == 8)
@@ -45,8 +51,14 @@ public class UIManagement : MonoBehaviour
     //Everything about the EnergySlider
     public void DecreaseEnergy(int energyDecreased)
     {
-        currentSliderValue += energyDecreased;
-        energySlider.value += energyDecreased;
+        currentSliderValue -= energyDecreased;
+        energySlider.value -= energyDecreased;
+        energyPercentage = ((currentSliderValue / maxSliderValue) * 100);
+        Debug.Log("Energy percentage: " + energyPercentage);
+        Debug.Log("Energy current: " + currentSliderValue);
+        Debug.Log("Energy max: " + maxSliderValue);
+   
+        energyPercentageUI.text = energyPercentage.ToString() + "%";
     }
 
     private void Update()
@@ -103,15 +115,24 @@ public class UIManagement : MonoBehaviour
         return timer;
     }
 
-    public void DrawDestinationVisual(Vector3 destination)
+    public void DrawDestinationVisual(Vector3 destination, int state)
     {
-        finalDestinationVisual.transform.position = new Vector3(destination.x, destination.y + 1.5f, destination.z);
-        finalDestinationVisual.SetActive(true);
+        if(state == 1)
+        {
+            finalDestinationGoogleMaps.transform.position = new Vector3(destination.x, destination.y + 1.5f, destination.z);
+            finalDestinationGoogleMaps.SetActive(true);
+        }
+        else if(state == 2)
+        {
+            finalDestinationNetflix.transform.position = new Vector3(destination.x, destination.y + 2f, destination.z);
+            finalDestinationNetflix.SetActive(true);
+        }
     }
 
     public void DestroyDestinationVisual()
     {
-        finalDestinationVisual.SetActive(false);
+        finalDestinationGoogleMaps.SetActive(false);
+        finalDestinationNetflix.SetActive(false);
     }
 
 

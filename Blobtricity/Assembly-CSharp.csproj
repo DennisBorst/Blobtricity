@@ -62,12 +62,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Dennis\Scripts\Cinema.cs" />
     <Compile Include="Assets\Dennis\Scripts\FSM\Blob.cs" />
     <Compile Include="Assets\Dennis\Scripts\FSM\DestinationState.cs" />
+    <Compile Include="Assets\Dennis\Scripts\FSM\DoneState.cs" />
     <Compile Include="Assets\Dennis\Scripts\FSM\FollowState.cs" />
     <Compile Include="Assets\Dennis\Scripts\FSM\FSM.cs" />
     <Compile Include="Assets\Dennis\Scripts\FSM\IdleState.cs" />
     <Compile Include="Assets\Dennis\Scripts\FSM\IUser.cs" />
+    <Compile Include="Assets\Dennis\Scripts\FSM\NetflixState.cs" />
     <Compile Include="Assets\Dennis\Scripts\FSM\State.cs" />
     <Compile Include="Assets\Dennis\Scripts\FSM\WalkState.cs" />
     <Compile Include="Assets\Dennis\Scripts\LevelManager.cs" />
@@ -75,6 +78,7 @@
     <Compile Include="Assets\Dennis\Scripts\PlayerPosition.cs" />
     <Compile Include="Assets\Dennis\Scripts\SwitchLights.cs" />
     <Compile Include="Assets\Dennis\Scripts\UIManagement.cs" />
+    <Compile Include="Assets\Dennis\skyboxes\Starfield Skybox\Demo\Script\LookCamera.cs" />
     <Compile Include="Assets\Dennis\Standard Assets\Cameras\Scripts\AbstractTargetFollower.cs" />
     <Compile Include="Assets\Dennis\Standard Assets\Cameras\Scripts\AutoCam.cs" />
     <Compile Include="Assets\Dennis\Standard Assets\Cameras\Scripts\FreeLookCam.cs" />

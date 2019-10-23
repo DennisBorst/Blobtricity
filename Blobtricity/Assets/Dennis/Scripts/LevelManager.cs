@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour
     [Header("Other")]
     [HideInInspector] public UnityStandardAssets.Characters.FirstPerson.MouseLook mouseManager;
 
-    public void FinishLevel(int _energyReduced)
+    public void FinishLevel(float _energyReduced)
     {
         uiCamera.SetActive(true);
         playerGameObject.SetActive(false);

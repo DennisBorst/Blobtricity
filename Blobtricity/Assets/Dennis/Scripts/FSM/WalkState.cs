@@ -9,7 +9,7 @@ public class WalkState : State
     private int maxDistanceToLocation = 2;
     private int distanceToLocation;
 
-    private float goalRadius = 10;
+    private float goalRadius = 40;
     private Vector3 finalPostion;
 
     public WalkState(StateEnum id)
@@ -49,6 +49,5 @@ public class WalkState : State
         NavMeshHit hit;
         NavMesh.SamplePosition(_randomDirection, out hit, goalRadius, NavMesh.AllAreas);
         finalPostion = hit.position;
-        Debug.Log(finalPostion);
     }
 }

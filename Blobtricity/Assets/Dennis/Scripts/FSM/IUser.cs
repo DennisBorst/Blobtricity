@@ -7,4 +7,6 @@ public interface IUser
 {
     NavMeshAgent navMeshAgent { get; }
     Transform transform { get; }
+    Transform[] cinemaPoints { get; }
+    void IsBusyFlip();
 }

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
+    public bool isBusy;
 
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject mapCamera;
 
     private UnityStandardAssets.Characters.FirstPerson.FirstPersonController firstPersonController;
-    private bool IsCheckingMap;
-
+    private bool isCheckingMap;
 
     // Start is called before the first frame update
     void Start()
@@ -35,12 +35,12 @@ public class PlayerControls : MonoBehaviour
 
     private void SwitchBool()
     {
-        IsCheckingMap = !IsCheckingMap;
+        isCheckingMap = !isCheckingMap;
     }
 
     private void ChangeCamera()
     {
-        if (IsCheckingMap)
+        if (isCheckingMap)
         {
             firstPersonController.enabled = false;
             mainCamera.SetActive(false);
@@ -53,5 +53,4 @@ public class PlayerControls : MonoBehaviour
             mapCamera.SetActive(false);
         }
     }
-
 }
