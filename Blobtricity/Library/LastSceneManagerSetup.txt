@@ -1,9 +1,5 @@
 sceneSetups:
-<<<<<<< Updated upstream
-- path: Assets/Honami/Honami.unity
-=======
-- path: Assets/Vanessa/Vanessa.unity
->>>>>>> Stashed changes
+- path: Assets/Marlies/Marlies.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
