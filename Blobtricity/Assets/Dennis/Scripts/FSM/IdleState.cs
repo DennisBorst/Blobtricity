@@ -32,7 +32,6 @@ public class IdleState : State
         {
             fsm.SwitchState(StateEnum.Walk);
         }
-        //fsm.SwitchState(StateEnum.Follow);
     }
 
     private float Timer(float timer)

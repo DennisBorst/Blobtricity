@@ -36,6 +36,7 @@ public class TinderState : State
     {
         Debug.Log("Exit Time");
         SpawnManager.Instance.SpawnHappyBlob(3);
+        SpawnManager.Instance.SpawnTree();
         _iUser.IsBusyFlip();
     }
 
