@@ -16,13 +16,12 @@ public class IdleState : State
     {
         base.OnEnter(_iUser);
         timer = maxTimer;
-        //_iUser.navMeshAgent.isStopped = true;
+        timer = Random.RandomRange(maxTimer - 3, maxTimer);
     }
 
     public override void OnExit()
     {
         Debug.Log("Exit Time");
-        //_iUser.navMeshAgent.isStopped = false;
     }
 
     public override void OnUpdate()

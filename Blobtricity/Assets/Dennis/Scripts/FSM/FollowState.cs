@@ -33,6 +33,7 @@ public class FollowState : State
     public override void OnExit()
     {
         Debug.Log("Exit Time");
+        SpawnManager.Instance.SpawnHappyBlob(1);
         _iUser.IsBusyFlip();
 
     }

@@ -21,7 +21,6 @@ public class NetflixState : State
     private float nearestCinema;
 
 
-
     public NetflixState(StateEnum id)
     {
         this.id = id;
@@ -30,16 +29,12 @@ public class NetflixState : State
     public override void OnEnter(IUser _iUser)
     {
         base.OnEnter(_iUser);
-
-        Debug.Log(_iUser.cinemaPoints[0].transform.position);
-        Debug.Log(_iUser.cinemaPoints[1].transform.position);
-
         SetDestination();
     }
 
     public override void OnExit()
     {
-        Debug.Log("Exit Time");
+        SpawnManager.Instance.SpawnHappyBlob(2);
         _iUser.IsBusyFlip();
     }
 

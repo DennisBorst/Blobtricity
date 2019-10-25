@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - LightSwitch
+  - TinderBlob
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - PlayerPlacement
   - Blobs
   - Player
-  - 
+  - PostProcessing
   - 
   - 
   - 

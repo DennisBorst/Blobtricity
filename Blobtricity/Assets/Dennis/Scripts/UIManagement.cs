@@ -6,18 +6,25 @@ using TMPro;
 
 public class UIManagement : MonoBehaviour
 {
-    [Header("Energy Related")]
-    [SerializeField] private Slider energySlider;
-    [SerializeField] private TextMeshProUGUI energyPercentageUI;
-    [SerializeField] private float maxSliderValue;
-    private float currentSliderValue;
-    private float energyPercentage;
-
     [Header("Time Related")]
     [SerializeField] private TextMeshProUGUI timerUI;
     private float timer;
     private int timerMinutes;
     private int timerHours;
+
+    [Header("Energy Related")]
+    [SerializeField] private Slider energySlider;
+    [SerializeField] private TextMeshProUGUI energyPercentageUI;
+    [SerializeField] private float maxEnergySliderValue;
+    private float currentEnergySliderValue;
+    private float energyPercentage;
+
+    [Header("Danger related")]
+    [SerializeField] private Slider dangerSlider;
+    [SerializeField] private TextMeshProUGUI dangerPercentageUI;
+    [SerializeField] private float maxDangerSliderValue;
+    private float currentDangerSliderValue;
+    private float dangerPercentage;
 
     [Header("Sun Related")]
     [SerializeField] private GameObject sunLight;
@@ -30,9 +37,15 @@ public class UIManagement : MonoBehaviour
 
     private void Start()
     {
-        energySlider.maxValue = maxSliderValue;
-        energySlider.value = maxSliderValue;
-        currentSliderValue = maxSliderValue;
+        //Energy bar
+        energySlider.maxValue = maxEnergySliderValue;
+        energySlider.value = maxEnergySliderValue;
+        currentEnergySliderValue = maxEnergySliderValue;
+
+        //Danger bar
+        dangerSlider.maxValue = maxDangerSliderValue;
+        dangerSlider.value = 0;
+        currentDangerSliderValue = 0;
 
         timerHours = LevelManager.Instance.beginHour;
 
@@ -51,21 +64,28 @@ public class UIManagement : MonoBehaviour
     //Everything about the EnergySlider
     public void DecreaseEnergy(int energyDecreased)
     {
-        currentSliderValue -= energyDecreased;
+        currentEnergySliderValue -= energyDecreased;
         energySlider.value -= energyDecreased;
-        energyPercentage = ((currentSliderValue / maxSliderValue) * 100);
-        Debug.Log("Energy percentage: " + energyPercentage);
-        Debug.Log("Energy current: " + currentSliderValue);
-        Debug.Log("Energy max: " + maxSliderValue);
+        energyPercentage = ((currentEnergySliderValue / maxEnergySliderValue) * 100);
    
         energyPercentageUI.text = energyPercentage.ToString() + "%";
+    }
+
+    //Everything about the DangerSlider
+    public void IncreaseDanger(int dangerIncreased)
+    {
+        currentDangerSliderValue += dangerIncreased;
+        dangerSlider.value += dangerIncreased;
+        dangerPercentage = ((currentDangerSliderValue / maxDangerSliderValue) * 100);
+
+        dangerPercentageUI.text = dangerPercentage.ToString() + "%";
     }
 
     private void Update()
     {
         if(timerHours >= 20)
         {
-            LevelManager.Instance.FinishLevel(currentSliderValue);
+            LevelManager.Instance.FinishLevel(currentEnergySliderValue);
 
             return;
         }

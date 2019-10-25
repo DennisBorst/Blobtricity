@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerControls : MonoBehaviour
 {
     public bool isBusy;
+    public bool isTinderBusy;
+    public bool stoppedBlob = false;
 
     [SerializeField] private GameObject mainCamera;
     [SerializeField] private GameObject mapCamera;

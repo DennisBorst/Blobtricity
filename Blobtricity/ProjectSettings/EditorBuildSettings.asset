@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Dennis/Dennis.unity
+    guid: 4201c559cd9b68f4b922cc529c13aeef
   m_configObjects: {}

@@ -6,7 +6,7 @@ public class FSM
 {
     public Dictionary<StateEnum, State> states = new Dictionary<StateEnum, State>();
 
-    private State currentState;
+    public State currentState;
     private IUser owner;
 
     public FSM(IUser _owner, StateEnum startState, params State[] statesList)

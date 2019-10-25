@@ -7,6 +7,8 @@ public class SwitchLights : MonoBehaviour
     [SerializeField] private UIManagement uiManagement;
 
     [SerializeField] private int decreaseEnergy;
+    [SerializeField] private int increaseDanger;
+    [SerializeField] private bool danger;
 
     [SerializeField] private Material lightOnMaterial;
     [SerializeField] private Material lightOffMaterial;
@@ -27,6 +29,10 @@ public class SwitchLights : MonoBehaviour
             lightSwitched = true;
             animationSwitch.Play("LightSwitch");
             uiManagement.DecreaseEnergy(decreaseEnergy);
+            if (danger)
+            {
+                uiManagement.IncreaseDanger(increaseDanger);
+            }
             SwitchLight();
         }
     }
@@ -37,17 +43,5 @@ public class SwitchLights : MonoBehaviour
         {
             normalColor[i].material = lightOffMaterial;
         }
-
-        /*
-        Debug.Log("light is switched");
-        if(normalColor.material == lightOffMaterial)
-        {
-            normalColor.material = lightOnMaterial;
-        }
-        else
-        {
-            
-        }
-        */
     }
 }

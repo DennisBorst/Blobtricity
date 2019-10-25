@@ -13,6 +13,7 @@ public class DoneState : State
     public override void OnEnter(IUser _iUser)
     {
         base.OnEnter(_iUser);
+        Debug.Log("I am done");
     }
 
     public override void OnExit()
@@ -22,6 +23,6 @@ public class DoneState : State
 
     public override void OnUpdate()
     {
-        
+        _iUser.navMeshAgent.destination = _iUser.transform.position;
     }
 }

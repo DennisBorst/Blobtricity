@@ -20,6 +20,7 @@ public class WalkState : State
     public override void OnEnter(IUser _iUser)
     {
         base.OnEnter(_iUser);
+        //_iUser.anim.SetTrigger("isWalking");
         SetDestination();
     }
 
@@ -30,12 +31,17 @@ public class WalkState : State
 
     public override void OnUpdate()
     {
+
         distanceToLocation = Convert.ToInt32((Vector3.Distance(_iUser.transform.position, finalPostion)));
 
         if (_iUser.transform.position == finalPostion || distanceToLocation <= maxDistanceToLocation)
         {
             Debug.Log("I have reached my point");
             fsm.SwitchState(StateEnum.Idle);
+        }
+        else if (_iUser.isDone == true)
+        {
+            return;
         }
         else
         {
