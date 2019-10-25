@@ -16,6 +16,10 @@ public class UIManagement : MonoBehaviour
     [SerializeField] private Slider energySlider;
     [SerializeField] private TextMeshProUGUI energyPercentageUI;
     [SerializeField] private float maxEnergySliderValue;
+    [Space]
+    [Range(0, 1)]
+    [SerializeField] private float overtimeEnergySpeed;
+    [HideInInspector] public int energyOvertimeDecrease = 0;
     private float currentEnergySliderValue;
     private float energyPercentage;
 
@@ -49,6 +53,7 @@ public class UIManagement : MonoBehaviour
 
         timerHours = LevelManager.Instance.beginHour;
 
+        /*
         if(timerHours == 8)
         {
             sunLight.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -59,6 +64,21 @@ public class UIManagement : MonoBehaviour
             sunLight.transform.rotation = Quaternion.Euler(sunPosition, 0, 0);
             Debug.Log("sun rotation x: " + sunPosition);
         }
+        */
+    }
+
+    private void Update()
+    {
+        if (timerHours >= 20)
+        {
+            LevelManager.Instance.FinishLevel(currentEnergySliderValue);
+
+            return;
+        }
+
+        EnergyDecreaseOvertime();
+        TimeManagement();
+        //SunRotation();
     }
 
     //Everything about the EnergySlider
@@ -71,6 +91,17 @@ public class UIManagement : MonoBehaviour
         energyPercentageUI.text = energyPercentage.ToString() + "%";
     }
 
+    public void EnergyDecreaseOvertime()
+    {
+        currentEnergySliderValue -= (energyOvertimeDecrease * overtimeEnergySpeed);
+        energySlider.value -= (energyOvertimeDecrease * overtimeEnergySpeed);
+
+        energyPercentage = ((currentEnergySliderValue / maxEnergySliderValue) * 100);
+
+        energyPercentage = Mathf.Round(energyPercentage);
+        energyPercentageUI.text = energyPercentage.ToString() + "%";
+    }
+
     //Everything about the DangerSlider
     public void IncreaseDanger(int dangerIncreased)
     {
@@ -79,19 +110,6 @@ public class UIManagement : MonoBehaviour
         dangerPercentage = ((currentDangerSliderValue / maxDangerSliderValue) * 100);
 
         dangerPercentageUI.text = dangerPercentage.ToString() + "%";
-    }
-
-    private void Update()
-    {
-        if(timerHours >= 20)
-        {
-            LevelManager.Instance.FinishLevel(currentEnergySliderValue);
-
-            return;
-        }
-
-        TimeManagement();
-        SunRotation();
     }
 
     private void TimeManagement()

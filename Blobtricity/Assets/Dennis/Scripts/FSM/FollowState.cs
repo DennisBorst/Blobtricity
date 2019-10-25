@@ -34,6 +34,7 @@ public class FollowState : State
     {
         Debug.Log("Exit Time");
         SpawnManager.Instance.SpawnHappyBlob(1);
+        SpawnManager.Instance.SpawnTree();
         _iUser.IsBusyFlip();
 
     }

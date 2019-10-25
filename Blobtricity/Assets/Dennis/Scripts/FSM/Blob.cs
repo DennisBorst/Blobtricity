@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public enum StateEnum { Idle, Walk, Follow, Netflix, Tinder, Done }
+public enum StateEnum { Idle, Walk, Follow, Netflix, Tinder, Electricity, Done }
 
 public class Blob : MonoBehaviour, IUser
 {
@@ -20,12 +20,15 @@ public class Blob : MonoBehaviour, IUser
     [SerializeField] private bool googleMaps = false;
     [SerializeField] private bool netflix = false;
     [SerializeField] private bool tinder = false;
+    [SerializeField] private bool electricity = false;
     [SerializeField] private bool thisBlob = false;
     private bool isDone;
-    private Blob[] blob;
 
     [SerializeField] private Transform[] cinemaPoints;
     [SerializeField] private Transform[] tinderBlobs;
+
+    private Canvas canvas;
+
 
     NavMeshAgent IUser.navMeshAgent => navMeshAgent;
     Transform[] IUser.cinemaPoints => cinemaPoints;
@@ -37,11 +40,13 @@ public class Blob : MonoBehaviour, IUser
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        canvas = GetComponentInChildren<Canvas>();
 
         fsm = new FSM(this, StateEnum.Idle, new IdleState(StateEnum.Idle), 
                     new WalkState(StateEnum.Walk), new FollowState(StateEnum.Follow), 
                     new NetflixState(StateEnum.Netflix),
-                   new TinderState(StateEnum.Tinder), new DoneState(StateEnum.Done));
+                   new TinderState(StateEnum.Tinder), new ElectricityState(StateEnum.Electricity),
+                   new DoneState(StateEnum.Done));
     }
 
     private void Update()
@@ -49,6 +54,7 @@ public class Blob : MonoBehaviour, IUser
         if (isDone)
         {
             tinder = false;
+            anim.SetTrigger("isLoving");
             fsm.SwitchState(StateEnum.Done);
             Debug.Log("I found my tinder date :D");
         }
@@ -89,6 +95,12 @@ public class Blob : MonoBehaviour, IUser
                 fsm.SwitchState(StateEnum.Tinder);
                 tinder = false;
             }
+            if (electricity == true && playerControls.isBusy == false)
+            {
+                playerControls.isBusy = true;
+                canvas.enabled = false;
+                fsm.SwitchState(StateEnum.Electricity);
+            }
         }
     }
 
@@ -96,6 +108,7 @@ public class Blob : MonoBehaviour, IUser
     {
         playerControls.isBusy = !playerControls.isBusy;
         playerControls.stoppedBlob = false;
+        electricity = false;
         thisBlob = false;
     }
 
@@ -115,7 +128,7 @@ public class Blob : MonoBehaviour, IUser
 
             Debug.Log("Walking State animation");
         }
-        else if (fsm.currentState == fsm.states[StateEnum.Idle])
+        else if (fsm.currentState == fsm.states[StateEnum.Idle] || fsm.currentState == fsm.states[StateEnum.Electricity])
         {
             anim.SetTrigger("isIdle");
 
@@ -128,6 +141,5 @@ public class Blob : MonoBehaviour, IUser
         {
             anim.SetTrigger("isDone");
         }
-        
     }  
 }

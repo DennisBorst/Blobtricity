@@ -35,6 +35,7 @@ public class NetflixState : State
     public override void OnExit()
     {
         SpawnManager.Instance.SpawnHappyBlob(2);
+        SpawnManager.Instance.SpawnTree();
         _iUser.IsBusyFlip();
     }
 

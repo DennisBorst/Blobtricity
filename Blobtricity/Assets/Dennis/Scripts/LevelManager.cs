@@ -26,7 +26,7 @@ public class LevelManager : MonoBehaviour
         playerGameObject.SetActive(false);
         mouseManager.EnableMouse();
 
-        if (_energyReduced >= energyReduceGoal)
+        if (_energyReduced <= 0)
         {
             WinState();
         }
