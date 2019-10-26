@@ -22263,6 +22263,7 @@ GameObject:
   - component: {fileID: 1528713760834473525}
   - component: {fileID: 8197909451423604096}
   - component: {fileID: 1709157180798576934}
+  - component: {fileID: 2746354944097329681}
   - component: {fileID: 2466574150769497320}
   m_Layer: 0
   m_Name: huis_niet_inloop 1
@@ -22334,6 +22335,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!208 &2746354944097329681
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267851298415714136}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 4.5, y: 1.5, z: 3}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.5, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!114 &2466574150769497320
 MonoBehaviour:
   m_ObjectHideFlags: 0
