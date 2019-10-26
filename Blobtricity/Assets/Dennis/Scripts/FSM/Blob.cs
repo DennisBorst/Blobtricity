@@ -21,6 +21,7 @@ public class Blob : MonoBehaviour, IUser
     [SerializeField] private bool netflix = false;
     [SerializeField] private bool tinder = false;
     [SerializeField] private bool electricity = false;
+    [SerializeField] private bool happyBlob = false;
     [SerializeField] private bool thisBlob = false;
     private bool isDone;
 
@@ -120,7 +121,7 @@ public class Blob : MonoBehaviour, IUser
         }
         else if (fsm.currentState == fsm.states[StateEnum.Walk])
         {
-            if (electricity)
+            if (electricity || happyBlob)
             {
                 anim.SetTrigger("isHappy");
             }
