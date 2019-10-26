@@ -117,11 +117,17 @@ public class Blob : MonoBehaviour, IUser
         if (fsm.currentState == fsm.states[StateEnum.Follow] || fsm.currentState == fsm.states[StateEnum.Netflix] || fsm.currentState == fsm.states[StateEnum.Tinder])
         {
             anim.SetTrigger("isFollowing");
-
         }
         else if (fsm.currentState == fsm.states[StateEnum.Walk])
         {
-            anim.SetTrigger("isWalking");
+            if (electricity)
+            {
+                anim.SetTrigger("isHappy");
+            }
+            else
+            {
+                anim.SetTrigger("isWalking");
+            }
 
             //anim.SetBool("isWalking", true);
             //anim.SetBool("isIdle", false);
