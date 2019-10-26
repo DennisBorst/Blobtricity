@@ -15954,6 +15954,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7954803662419961620}
+  - component: {fileID: 2030587543267374681}
+  - component: {fileID: 3236924036567753224}
   m_Layer: 0
   m_Name: flat_niet_inloop
   m_TagString: Untagged
@@ -16011,6 +16013,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &2030587543267374681
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6358653933888623879}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 18.5, y: 1.5, z: 4}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.5, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!65 &3236924036567753224
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6358653933888623879}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 36, y: 18, z: 8}
+  m_Center: {x: 0, y: 9, z: 0}
 --- !u!1 &6364167595839669727
 GameObject:
   m_ObjectHideFlags: 0

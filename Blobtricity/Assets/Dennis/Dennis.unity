@@ -198,6 +198,11 @@ PrefabInstance:
       propertyPath: playerControls
       value: 
       objectReference: {fileID: 1212922102}
+    - target: {fileID: 2137841908418679261, guid: f040ff4473a5bf346846c491144dc2f9,
+        type: 3}
+      propertyPath: happyBlob
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f040ff4473a5bf346846c491144dc2f9, type: 3}
 --- !u!4 &612991 stripped
@@ -1169,6 +1174,7 @@ MonoBehaviour:
   netflix: 0
   tinder: 1
   electricity: 0
+  happyBlob: 0
   thisBlob: 0
   cinemaPoints: []
   tinderBlobs:
@@ -2026,6 +2032,7 @@ MonoBehaviour:
   netflix: 1
   tinder: 0
   electricity: 0
+  happyBlob: 0
   thisBlob: 0
   cinemaPoints:
   - {fileID: 2029435562}
@@ -2255,6 +2262,11 @@ PrefabInstance:
       propertyPath: playerControls
       value: 
       objectReference: {fileID: 1212922102}
+    - target: {fileID: 2137841908418679261, guid: 2c5f01c61f10a6c48aeafeb83d2a0c47,
+        type: 3}
+      propertyPath: happyBlob
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c5f01c61f10a6c48aeafeb83d2a0c47, type: 3}
 --- !u!4 &124237372 stripped
@@ -4514,6 +4526,7 @@ MonoBehaviour:
   netflix: 0
   tinder: 1
   electricity: 0
+  happyBlob: 0
   thisBlob: 0
   cinemaPoints: []
   tinderBlobs:
@@ -4694,6 +4707,11 @@ PrefabInstance:
       propertyPath: playerControls
       value: 
       objectReference: {fileID: 1212922102}
+    - target: {fileID: 2137841908418679261, guid: 2c5f01c61f10a6c48aeafeb83d2a0c47,
+        type: 3}
+      propertyPath: happyBlob
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c5f01c61f10a6c48aeafeb83d2a0c47, type: 3}
 --- !u!4 &321469843 stripped
@@ -5387,6 +5405,7 @@ MonoBehaviour:
   netflix: 0
   tinder: 1
   electricity: 0
+  happyBlob: 0
   thisBlob: 0
   cinemaPoints: []
   tinderBlobs:
@@ -6573,6 +6592,7 @@ MonoBehaviour:
   netflix: 0
   tinder: 1
   electricity: 0
+  happyBlob: 0
   thisBlob: 0
   cinemaPoints: []
   tinderBlobs:
@@ -8865,6 +8885,11 @@ PrefabInstance:
       propertyPath: playerControls
       value: 
       objectReference: {fileID: 1212922102}
+    - target: {fileID: 2137841908418679261, guid: f040ff4473a5bf346846c491144dc2f9,
+        type: 3}
+      propertyPath: happyBlob
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f040ff4473a5bf346846c491144dc2f9, type: 3}
 --- !u!4 &638046908 stripped
@@ -10008,6 +10033,11 @@ PrefabInstance:
       propertyPath: playerControls
       value: 
       objectReference: {fileID: 1212922102}
+    - target: {fileID: 2137841908418679261, guid: 404e7d0d133f95d499accbedaa4d0102,
+        type: 3}
+      propertyPath: happyBlob
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 404e7d0d133f95d499accbedaa4d0102, type: 3}
 --- !u!4 &822348707 stripped
@@ -10961,6 +10991,11 @@ PrefabInstance:
       propertyPath: playerControls
       value: 
       objectReference: {fileID: 1212922102}
+    - target: {fileID: 2137841908418679261, guid: 404e7d0d133f95d499accbedaa4d0102,
+        type: 3}
+      propertyPath: happyBlob
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 404e7d0d133f95d499accbedaa4d0102, type: 3}
 --- !u!4 &884766562 stripped
@@ -12710,6 +12745,11 @@ PrefabInstance:
       propertyPath: playerControls
       value: 
       objectReference: {fileID: 1212922102}
+    - target: {fileID: 2137841908418679261, guid: f040ff4473a5bf346846c491144dc2f9,
+        type: 3}
+      propertyPath: happyBlob
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f040ff4473a5bf346846c491144dc2f9, type: 3}
 --- !u!4 &985050253 stripped
@@ -14810,6 +14850,11 @@ PrefabInstance:
       propertyPath: playerControls
       value: 
       objectReference: {fileID: 1212922102}
+    - target: {fileID: 2137841908418679261, guid: 404e7d0d133f95d499accbedaa4d0102,
+        type: 3}
+      propertyPath: happyBlob
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 404e7d0d133f95d499accbedaa4d0102, type: 3}
 --- !u!4 &1175162636 stripped
@@ -16095,6 +16140,7 @@ MonoBehaviour:
   netflix: 0
   tinder: 1
   electricity: 0
+  happyBlob: 0
   thisBlob: 0
   cinemaPoints: []
   tinderBlobs:
@@ -17099,6 +17145,11 @@ PrefabInstance:
       propertyPath: playerControls
       value: 
       objectReference: {fileID: 1212922102}
+    - target: {fileID: 2137841908418679261, guid: 404e7d0d133f95d499accbedaa4d0102,
+        type: 3}
+      propertyPath: happyBlob
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 404e7d0d133f95d499accbedaa4d0102, type: 3}
 --- !u!4 &1386764495 stripped
@@ -17169,6 +17220,7 @@ MonoBehaviour:
   netflix: 0
   tinder: 1
   electricity: 0
+  happyBlob: 0
   thisBlob: 0
   cinemaPoints: []
   tinderBlobs:
@@ -17621,6 +17673,11 @@ PrefabInstance:
       propertyPath: playerControls
       value: 
       objectReference: {fileID: 1212922102}
+    - target: {fileID: 2137841908418679261, guid: 2c5f01c61f10a6c48aeafeb83d2a0c47,
+        type: 3}
+      propertyPath: happyBlob
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c5f01c61f10a6c48aeafeb83d2a0c47, type: 3}
 --- !u!4 &1419621660 stripped
@@ -20254,6 +20311,11 @@ PrefabInstance:
       propertyPath: playerControls
       value: 
       objectReference: {fileID: 1212922102}
+    - target: {fileID: 2137841908418679261, guid: 404e7d0d133f95d499accbedaa4d0102,
+        type: 3}
+      propertyPath: happyBlob
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 404e7d0d133f95d499accbedaa4d0102, type: 3}
 --- !u!4 &1600754245 stripped
@@ -22234,6 +22296,11 @@ PrefabInstance:
       propertyPath: playerControls
       value: 
       objectReference: {fileID: 1212922102}
+    - target: {fileID: 2137841908418679261, guid: 2c5f01c61f10a6c48aeafeb83d2a0c47,
+        type: 3}
+      propertyPath: happyBlob
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c5f01c61f10a6c48aeafeb83d2a0c47, type: 3}
 --- !u!4 &1701375821 stripped
@@ -23586,6 +23653,7 @@ MonoBehaviour:
   netflix: 0
   tinder: 0
   electricity: 0
+  happyBlob: 0
   thisBlob: 0
   cinemaPoints: []
   tinderBlobs: []
@@ -24475,6 +24543,7 @@ MonoBehaviour:
   netflix: 1
   tinder: 0
   electricity: 0
+  happyBlob: 0
   thisBlob: 0
   cinemaPoints:
   - {fileID: 2029435562}
@@ -26680,6 +26749,11 @@ PrefabInstance:
       propertyPath: playerControls
       value: 
       objectReference: {fileID: 1212922102}
+    - target: {fileID: 2137841908418679261, guid: f040ff4473a5bf346846c491144dc2f9,
+        type: 3}
+      propertyPath: happyBlob
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f040ff4473a5bf346846c491144dc2f9, type: 3}
 --- !u!4 &2035037055 stripped
@@ -27455,6 +27529,7 @@ MonoBehaviour:
   netflix: 1
   tinder: 0
   electricity: 0
+  happyBlob: 0
   thisBlob: 0
   cinemaPoints:
   - {fileID: 2029435562}
