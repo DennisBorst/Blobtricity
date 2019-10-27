@@ -9,7 +9,7 @@ public class WalkState : State
     private int maxDistanceToLocation = 2;
     private int distanceToLocation;
 
-    private float goalRadius = 40;
+    private float goalRadius = 200;
     private Vector3 finalPostion;
 
     public WalkState(StateEnum id)

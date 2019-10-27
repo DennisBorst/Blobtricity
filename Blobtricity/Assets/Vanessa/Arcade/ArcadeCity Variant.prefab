@@ -101,7 +101,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 0af7d43e74aaefa4cb1cb4d0556d87da,
         type: 3}
       propertyPath: m_Name
-      value: ArcadeCity
+      value: ArcadeCity Variant
       objectReference: {fileID: 0}
     - target: {fileID: -8726702373280781330, guid: 0af7d43e74aaefa4cb1cb4d0556d87da,
         type: 3}
