@@ -144,7 +144,7 @@
     <Compile Include="Assets\Dennis\Standard Assets\Utility\TimedObjectDestructor.cs" />
     <Compile Include="Assets\Dennis\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\Dennis\Standard Assets\Utility\WaypointProgressTracker.cs" />
-    <Compile Include="Assets\Honami\Script\RotatingTheSun.cs" />
+    <Compile Include="Assets\Honami\Script\trafficLight.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

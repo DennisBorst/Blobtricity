@@ -30,6 +30,13 @@ public class UIManagement : MonoBehaviour
     private float currentDangerSliderValue;
     private float dangerPercentage;
 
+    [Header("Sustainable related")]
+    [SerializeField] private Slider sustainableSlider;
+    [SerializeField] private TextMeshProUGUI sustainablePercentageUI;
+    [SerializeField] private float maxSustainableSliderValue;
+    private float currentSustainableSliderValue;
+    private float sustainablePercentage;
+
     [Header("Sun Related")]
     [SerializeField] private GameObject sunLight;
 
@@ -38,6 +45,7 @@ public class UIManagement : MonoBehaviour
     [Header("Blob stuff")]
     [SerializeField] private GameObject finalDestinationGoogleMaps;
     [SerializeField] private GameObject finalDestinationNetflix;
+    [SerializeField] private GameObject finalDestinationGamer;
 
     private void Start()
     {
@@ -50,6 +58,11 @@ public class UIManagement : MonoBehaviour
         dangerSlider.maxValue = maxDangerSliderValue;
         dangerSlider.value = 0;
         currentDangerSliderValue = 0;
+
+        //Sustainable bar
+        sustainableSlider.maxValue = maxSustainableSliderValue;
+        sustainableSlider.value = 0;
+        currentSustainableSliderValue = 0;
 
         timerHours = LevelManager.Instance.beginHour;
 
@@ -69,7 +82,7 @@ public class UIManagement : MonoBehaviour
 
     private void Update()
     {
-        if (timerHours >= 20)
+        if (timerHours >= 8 && timerHours <= 10)
         {
             LevelManager.Instance.FinishLevel(currentEnergySliderValue);
 
@@ -110,6 +123,15 @@ public class UIManagement : MonoBehaviour
         dangerPercentage = ((currentDangerSliderValue / maxDangerSliderValue) * 100);
 
         dangerPercentageUI.text = dangerPercentage.ToString() + "%";
+    }
+
+    public void IncreaseSustainable(int sustainableIncreased)
+    {
+        currentSustainableSliderValue += sustainableIncreased;
+        sustainableSlider.value += sustainableIncreased;
+        sustainablePercentage = ((currentSustainableSliderValue / maxSustainableSliderValue) * 100);
+
+        sustainablePercentageUI.text = sustainablePercentage.ToString() + "%";
     }
 
     private void TimeManagement()
@@ -165,12 +187,18 @@ public class UIManagement : MonoBehaviour
             finalDestinationNetflix.transform.position = new Vector3(destination.x, destination.y + 2f, destination.z);
             finalDestinationNetflix.SetActive(true);
         }
+        else if (state == 3)
+        {
+            finalDestinationGamer.transform.position = new Vector3(destination.x, destination.y + 2f, destination.z);
+            finalDestinationGamer.SetActive(true);
+        }
     }
 
     public void DestroyDestinationVisual()
     {
         finalDestinationGoogleMaps.SetActive(false);
         finalDestinationNetflix.SetActive(false);
+        finalDestinationGamer.SetActive(false);
     }
 
 

@@ -19,6 +19,7 @@ public class Blob : MonoBehaviour, IUser
 
     [SerializeField] private bool googleMaps = false;
     [SerializeField] private bool netflix = false;
+    [SerializeField] private bool gamer = false;
     [SerializeField] private bool tinder = false;
     [SerializeField] private bool electricity = false;
     [SerializeField] private bool happyBlob = false;
@@ -35,6 +36,8 @@ public class Blob : MonoBehaviour, IUser
     Transform[] IUser.cinemaPoints => cinemaPoints;
     Transform[] IUser.tinderBlobs => tinderBlobs;
     bool IUser.isDone => isDone;
+    bool IUser.isNetflix => netflix;
+
 
     PlayerControls IUser.playerControls => playerControls;
 
@@ -70,13 +73,13 @@ public class Blob : MonoBehaviour, IUser
 
     private void OnTriggerStay(Collider other)
     {
-        
-        if(tinder == true && playerControls.isBusy && !thisBlob && !playerControls.stoppedBlob)
+
+        if (tinder == true && playerControls.isBusy && !thisBlob && !playerControls.stoppedBlob)
         {
             playerControls.stoppedBlob = true;
             isDone = true;
         }
-        
+
         else if (Input.GetKeyUp(KeyCode.E))
         {
             if (googleMaps == true && playerControls.isBusy == false)
@@ -85,6 +88,11 @@ public class Blob : MonoBehaviour, IUser
                 fsm.SwitchState(StateEnum.Follow);
             }
             else if (netflix == true && playerControls.isBusy == false)
+            {
+                playerControls.isBusy = true;
+                fsm.SwitchState(StateEnum.Netflix);
+            }
+            else if (gamer == true && playerControls.isBusy == false)
             {
                 playerControls.isBusy = true;
                 fsm.SwitchState(StateEnum.Netflix);

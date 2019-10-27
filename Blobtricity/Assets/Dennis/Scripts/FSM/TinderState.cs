@@ -6,10 +6,10 @@ using UnityEngine.AI;
 
 public class TinderState : State
 {
-    private int decreaseEnergy = 25;
+    private int decreaseEnergy = 60;
 
     private int maxDistanceToLocation = 3;
-    private int maxDistanceToPlayer = 7;
+    private int maxDistanceToPlayer = 3;
 
     private int distanceToLocation;
     private int distanceToPlayer;

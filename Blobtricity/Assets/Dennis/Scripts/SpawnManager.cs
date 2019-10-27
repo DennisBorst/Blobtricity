@@ -88,6 +88,11 @@ public class SpawnManager : MonoBehaviour
         if(treeCount < tree.Length)
         {
             tree[treeCount - 1].SetActive(true);
+        }
+
+        treeCount++;
+        if (treeCount < tree.Length)
+        {
             tree[treeCount - 1].SetActive(true);
         }
     }

@@ -6,10 +6,10 @@ using UnityEngine.AI;
 
 public class FollowState : State
 {
-    private int decreaseEnergy = 25;
+    private int decreaseEnergy = 35;
 
-    private int maxDistanceToLocation = 2;
-    private int maxDistanceToPlayer = 7;
+    private int maxDistanceToLocation = 3;
+    private int maxDistanceToPlayer = 3;
 
     private int distanceToLocation;
     private int distanceToPlayer;
