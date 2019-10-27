@@ -8,7 +8,7 @@ public class NetflixState : State
 {
     private int decreaseEnergy = 25;
 
-    private int maxDistanceToLocation = 2;
+    private int maxDistanceToLocation = 3;
     private int maxDistanceToPlayer = 7;
 
     private int distanceToLocation;
