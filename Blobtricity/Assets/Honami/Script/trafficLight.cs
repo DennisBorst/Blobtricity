@@ -40,11 +40,11 @@ public class trafficLight : MonoBehaviour
             if (trtr >= 10)
             {
                 slightRed.GetComponent<Light>().intensity = 1f;
-                slightBlue.GetComponent<Light>().intensity = 20f;
+                slightBlue.GetComponent<Light>().intensity = 22f;
             }
             else
             {
-                slightRed.GetComponent<Light>().intensity = 10f;
+                slightRed.GetComponent<Light>().intensity = 12f;
                 slightBlue.GetComponent<Light>().intensity = 1f;
             }
             
