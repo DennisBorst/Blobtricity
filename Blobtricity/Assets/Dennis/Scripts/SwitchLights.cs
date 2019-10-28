@@ -32,9 +32,13 @@ public class SwitchLights : MonoBehaviour
             {
                 animationSwitch.Play("LightSwitch");
             }
+
             uiManagement.DecreaseEnergy(decreaseEnergy);
+            //SoundManager.Instance.PlayHouseSound();
+
             if (danger)
             {
+                SoundManager.Instance.PlayScaredBlob();
                 uiManagement.IncreaseDanger(increaseDanger);
             }
             SwitchLight();

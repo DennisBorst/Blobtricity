@@ -78,6 +78,7 @@
     <Compile Include="Assets\Dennis\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Dennis\Scripts\PlayerControls.cs" />
     <Compile Include="Assets\Dennis\Scripts\PlayerPosition.cs" />
+    <Compile Include="Assets\Dennis\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Dennis\Scripts\SpawnManager.cs" />
     <Compile Include="Assets\Dennis\Scripts\SwitchLights.cs" />
     <Compile Include="Assets\Dennis\Scripts\UIManagement.cs" />

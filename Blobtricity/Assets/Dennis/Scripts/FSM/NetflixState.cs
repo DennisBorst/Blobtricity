@@ -127,6 +127,7 @@ public class NetflixState : State
 
     private void DestinationReached()
     {
+        SoundManager.Instance.PlayHappyBlob();
         fsm.SwitchState(StateEnum.Done);
         Debug.Log("I have made it to my destination");
     }

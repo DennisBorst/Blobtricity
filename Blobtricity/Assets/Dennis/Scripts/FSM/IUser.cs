@@ -13,6 +13,7 @@ public interface IUser
     bool isNetflix { get; }
 
     PlayerControls playerControls { get; }
+    Blob blob { get; }
 
     void IsBusyFlip();
 }
