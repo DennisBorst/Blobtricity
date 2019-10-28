@@ -52,11 +52,6 @@ public class TinderState : State
         {
             Following();
         }
-        else
-        {
-            DestinationReached();
-        }
-        
     }
 
     private void Following()
@@ -69,8 +64,9 @@ public class TinderState : State
         if (_iUser.transform.position == finalPostion || distanceToLocation <= maxDistanceToLocation)
         {
             UIManagement.Instance.DecreaseEnergy(decreaseEnergy);
+            SoundManager.Instance.PlayTinderBlob();
+            fsm.SwitchState(StateEnum.Done);
             Debug.Log("I have reached my destination");
-            destinationReached = true;
             return;
         }
 
@@ -118,11 +114,5 @@ public class TinderState : State
             }
         }
         return nearestTinderBlob;
-    }
-
-    private void DestinationReached()
-    {
-        fsm.SwitchState(StateEnum.Done);
-        Debug.Log("I have made it to my destination");
     }
 }

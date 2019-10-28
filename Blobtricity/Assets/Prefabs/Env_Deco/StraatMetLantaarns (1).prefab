@@ -80,6 +80,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1444322543792021431, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7566192823235059068, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
         type: 3}
       propertyPath: m_IsTrigger
@@ -150,7 +155,7 @@ PrefabInstance:
       propertyPath: lightColor.Array.data[11]
       value: 
       objectReference: {fileID: 6937625102873985534}
-    - target: {fileID: 1444322543792021431, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+    - target: {fileID: 8091391508570726905, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -160,10 +165,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8091391508570726905, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+    - target: {fileID: 7101454883718614211, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101454883718614211, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: MinDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101454883718614211, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbbe4b2d24e79ee4eb139c76f9f5a700, type: 3}

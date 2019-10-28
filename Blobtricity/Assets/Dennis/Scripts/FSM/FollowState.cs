@@ -17,8 +17,6 @@ public class FollowState : State
     private float goalRadius = 50;
     private Vector3 finalPostion;
 
-    private bool destinationReached = false;
-
     public FollowState(StateEnum id)
     {
         this.id = id;
@@ -41,19 +39,11 @@ public class FollowState : State
 
     public override void OnUpdate()
     {
-        if (!destinationReached)
-        {
-            Following();
-        }
-        else
-        {
-            DestinationReached();
-        }
+        Following();
     }
 
     private void Following()
     {
-        Debug.DrawRay(_iUser.transform.position, finalPostion.normalized, Color.red);
 
         distanceToLocation = Convert.ToInt32((Vector3.Distance(_iUser.transform.position, finalPostion)));
         distanceToPlayer = Convert.ToInt32((Vector3.Distance(_iUser.navMeshAgent.destination, PlayerPosition.Instance.transform.position)));
@@ -62,14 +52,13 @@ public class FollowState : State
         {
             UIManagement.Instance.DecreaseEnergy(decreaseEnergy);
             UIManagement.Instance.DestroyDestinationVisual();
-            Debug.Log("I have reached my destination");
-            destinationReached = true;
-        }
 
-        if (distanceToPlayer >= maxDistanceToPlayer)
+            SoundManager.Instance.PlayHappyBlob();
+            fsm.SwitchState(StateEnum.Done);
+        }
+        else
         {
             _iUser.navMeshAgent.destination = PlayerPosition.Instance.transform.position;
-            //_iUser.navMeshAgent.destination = finalPostion;
         }
     }
 
@@ -82,12 +71,5 @@ public class FollowState : State
         Debug.Log(finalPostion);
 
         UIManagement.Instance.DrawDestinationVisual(finalPostion, 1);
-    }
-
-    private void DestinationReached()
-    {
-        SoundManager.Instance.PlayHappyBlob();
-        fsm.SwitchState(StateEnum.Done);
-        Debug.Log("I have made it to my destination");
     }
 }

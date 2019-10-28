@@ -80,6 +80,7 @@ public class Blob : MonoBehaviour, IUser
         if (tinder == true && playerControls.isBusy && !thisBlob && !playerControls.stoppedBlob)
         {
             playerControls.stoppedBlob = true;
+            SoundManager.Instance.PlayBlobSound();
             isDone = true;
         }
 
@@ -89,6 +90,7 @@ public class Blob : MonoBehaviour, IUser
             {
                 playerControls.isBusy = true;
                 SoundManager.Instance.PlayBlobSound();
+                fsm.SwitchState(StateEnum.Idle);
                 fsm.SwitchState(StateEnum.Follow);
             }
             else if (netflix == true && playerControls.isBusy == false)
@@ -114,6 +116,7 @@ public class Blob : MonoBehaviour, IUser
             if (electricity == true && playerControls.isBusy == false)
             {
                 playerControls.isBusy = true;
+                SoundManager.Instance.PlayElectroBlob();
                 canvas.enabled = false;
                 fsm.SwitchState(StateEnum.Electricity);
             }

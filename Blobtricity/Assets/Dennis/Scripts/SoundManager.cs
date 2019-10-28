@@ -5,23 +5,36 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] private AudioSource houseSource;
+    [SerializeField] private AudioSource mapSource;
     [SerializeField] private AudioSource scaredSource;
     [SerializeField] private AudioSource scaredSource2;
     [SerializeField] private AudioSource blobSource;
     [SerializeField] private AudioSource blobHappySource;
+    [SerializeField] private AudioSource blobTinderSource;
+    [SerializeField] private AudioSource blobTinderSource2;
+    [SerializeField] private AudioSource blobElectroSource;
 
-    [SerializeField] private AudioClip[] houseSound;
+
+    [SerializeField] private AudioClip houseSound;
+    [SerializeField] private AudioClip mapSound;
     [SerializeField] private AudioClip[] scaredSound;
     [SerializeField] private AudioClip[] blobSound;
     [SerializeField] private AudioClip[] blobHappySound;
+    [SerializeField] private AudioClip[] blobTinderSound;
+    [SerializeField] private AudioClip[] blobElectroSound;
 
     private int randomNumber;
     private int randomNumber1;
 
+    public void PlayMapSound()
+    {
+        mapSource.clip = mapSound;
+        mapSource.Play();
+    }
+
     public void PlayHouseSound()
     {
-        randomNumber = Random.RandomRange(0, houseSound.Length);
-        houseSource.clip = houseSound[randomNumber];
+        houseSource.clip = houseSound;
         houseSource.Play();
     }
 
@@ -33,6 +46,8 @@ public class SoundManager : MonoBehaviour
         scaredSource.Play();
         scaredSource2.clip = scaredSound[randomNumber1];
         scaredSource2.Play();
+        scaredSource.volume += 0.1f;
+        scaredSource2.volume += 0.1f;
     }
 
     public void PlayBlobSound()
@@ -47,6 +62,25 @@ public class SoundManager : MonoBehaviour
         randomNumber = Random.RandomRange(0, blobHappySound.Length);
         blobHappySource.clip = blobHappySound[randomNumber];
         blobHappySource.Play();
+    }
+
+    public void PlayTinderBlob()
+    {
+        randomNumber = Random.RandomRange(0, blobTinderSound.Length);
+        randomNumber1 = Random.RandomRange(0, blobTinderSound.Length);
+
+        blobTinderSource.clip = blobTinderSound[randomNumber];
+        blobTinderSource2.clip = blobTinderSound[randomNumber1];
+
+        blobTinderSource.Play();
+        blobTinderSource2.Play();
+    }
+
+    public void PlayElectroBlob()
+    {
+        randomNumber = Random.RandomRange(0, blobElectroSound.Length);
+        blobElectroSource.clip = blobElectroSound[randomNumber];
+        blobElectroSource.Play();
     }
 
 
