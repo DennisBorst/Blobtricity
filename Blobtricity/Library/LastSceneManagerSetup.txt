@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Honami/Honami.unity
+- path: Assets/Marlies/Marlies.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
