@@ -14,6 +14,9 @@ public class DoneState : State
     {
         base.OnEnter(_iUser);
         Debug.Log("I am done");
+        _iUser.navMeshAgent.destination = _iUser.transform.position;
+        _iUser.blob.enabled = false;
+
     }
 
     public override void OnExit()
@@ -23,6 +26,5 @@ public class DoneState : State
 
     public override void OnUpdate()
     {
-        _iUser.navMeshAgent.destination = _iUser.transform.position;
     }
 }

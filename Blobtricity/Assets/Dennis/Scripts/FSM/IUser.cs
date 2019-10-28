@@ -10,8 +10,10 @@ public interface IUser
     Transform[] cinemaPoints { get; }
     Transform[] tinderBlobs { get; }
     bool isDone { get; }
+    bool isNetflix { get; }
 
     PlayerControls playerControls { get; }
+    Blob blob { get; }
 
     void IsBusyFlip();
 }

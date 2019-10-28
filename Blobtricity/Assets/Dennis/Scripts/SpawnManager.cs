@@ -7,6 +7,7 @@ public class SpawnManager : MonoBehaviour
     [Header("Blobs")]
     [SerializeField] private GameObject[] happyBlobMaps;
     [SerializeField] private GameObject[] happyBlobNetflix;
+    [SerializeField] private GameObject[] happyBlobGamer;
     [SerializeField] private GameObject[] happyBlobTinder;
 
     [Header("Other")]
@@ -16,6 +17,7 @@ public class SpawnManager : MonoBehaviour
 
     private int happyBlobMapsCount = 0;
     private int happyBlobNetflixCount = 0;
+    private int happyBlobGamerCount = 0;
     private int happyBlobTinderCount = 0;
 
     private int treeCount;
@@ -33,6 +35,11 @@ public class SpawnManager : MonoBehaviour
         for (int i = 0; i < happyBlobNetflix.Length; i++)
         {
             happyBlobNetflix[i].SetActive(false);
+        }
+
+        for (int i = 0; i < happyBlobGamer.Length; i++)
+        {
+            happyBlobGamer[i].SetActive(false);
         }
 
         for (int i = 0; i < happyBlobTinder.Length; i++)
@@ -68,12 +75,23 @@ public class SpawnManager : MonoBehaviour
             happyBlobTinderCount++;
             if (happyBlobTinderCount < happyBlobTinder.Length) { happyBlobTinder[happyBlobTinderCount - 1].SetActive(true); }
         }
+        if (blob == 4)
+        {
+            happyBlobGamerCount++;
+            if (happyBlobGamerCount < happyBlobGamer.Length) { happyBlobGamer[happyBlobGamerCount - 1].SetActive(true); }
+        }
     }
 
     public void SpawnTree()
     {
         treeCount++;
         if(treeCount < tree.Length)
+        {
+            tree[treeCount - 1].SetActive(true);
+        }
+
+        treeCount++;
+        if (treeCount < tree.Length)
         {
             tree[treeCount - 1].SetActive(true);
         }

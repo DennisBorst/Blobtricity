@@ -19,6 +19,7 @@ public class Blob : MonoBehaviour, IUser
 
     [SerializeField] private bool googleMaps = false;
     [SerializeField] private bool netflix = false;
+    [SerializeField] private bool gamer = false;
     [SerializeField] private bool tinder = false;
     [SerializeField] private bool electricity = false;
     [SerializeField] private bool happyBlob = false;
@@ -28,6 +29,7 @@ public class Blob : MonoBehaviour, IUser
     [SerializeField] private Transform[] cinemaPoints;
     [SerializeField] private Transform[] tinderBlobs;
 
+    private Blob blob;
     private Canvas canvas;
 
 
@@ -35,13 +37,17 @@ public class Blob : MonoBehaviour, IUser
     Transform[] IUser.cinemaPoints => cinemaPoints;
     Transform[] IUser.tinderBlobs => tinderBlobs;
     bool IUser.isDone => isDone;
+    bool IUser.isNetflix => netflix;
+
 
     PlayerControls IUser.playerControls => playerControls;
+    Blob IUser.blob => blob;
 
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         canvas = GetComponentInChildren<Canvas>();
+        blob = this;
 
         fsm = new FSM(this, StateEnum.Idle, new IdleState(StateEnum.Idle), 
                     new WalkState(StateEnum.Walk), new FollowState(StateEnum.Follow), 
@@ -70,29 +76,38 @@ public class Blob : MonoBehaviour, IUser
 
     private void OnTriggerStay(Collider other)
     {
-        
-        if(tinder == true && playerControls.isBusy && !thisBlob && !playerControls.stoppedBlob)
+
+        if (tinder == true && playerControls.isBusy && !thisBlob && !playerControls.stoppedBlob)
         {
             playerControls.stoppedBlob = true;
             isDone = true;
         }
-        
+
         else if (Input.GetKeyUp(KeyCode.E))
         {
             if (googleMaps == true && playerControls.isBusy == false)
             {
                 playerControls.isBusy = true;
+                SoundManager.Instance.PlayBlobSound();
                 fsm.SwitchState(StateEnum.Follow);
             }
             else if (netflix == true && playerControls.isBusy == false)
             {
                 playerControls.isBusy = true;
+                SoundManager.Instance.PlayBlobSound();
+                fsm.SwitchState(StateEnum.Netflix);
+            }
+            else if (gamer == true && playerControls.isBusy == false)
+            {
+                playerControls.isBusy = true;
+                SoundManager.Instance.PlayBlobSound();
                 fsm.SwitchState(StateEnum.Netflix);
             }
             else if (tinder == true && playerControls.isBusy == false)
             {
                 playerControls.isBusy = true;
                 thisBlob = true;
+                SoundManager.Instance.PlayBlobSound();
                 fsm.SwitchState(StateEnum.Tinder);
                 tinder = false;
             }

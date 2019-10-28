@@ -18,6 +18,8 @@ public class ElectricityState : State
         timer = maxTimer;
         SpawnManager.Instance.SpawnWindmill();
         UIManagement.Instance.energyOvertimeDecrease++;
+        UIManagement.Instance.IncreaseSustainable(25);
+        SpawnManager.Instance.SpawnTree();
         _iUser.navMeshAgent.destination = _iUser.transform.position;
     }
 

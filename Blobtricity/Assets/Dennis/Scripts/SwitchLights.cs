@@ -13,6 +13,7 @@ public class SwitchLights : MonoBehaviour
     [SerializeField] private Material lightOnMaterial;
     [SerializeField] private Material lightOffMaterial;
     [SerializeField] private MeshRenderer[] normalColor;
+    [SerializeField] private GameObject[] lightColor;
 
     private Animator animationSwitch;
     private bool lightSwitched = false;
@@ -27,10 +28,17 @@ public class SwitchLights : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.E) && !lightSwitched)
         {
             lightSwitched = true;
-            animationSwitch.Play("LightSwitch");
+            if(animationSwitch != null)
+            {
+                animationSwitch.Play("LightSwitch");
+            }
+
             uiManagement.DecreaseEnergy(decreaseEnergy);
+            //SoundManager.Instance.PlayHouseSound();
+
             if (danger)
             {
+                SoundManager.Instance.PlayScaredBlob();
                 uiManagement.IncreaseDanger(increaseDanger);
             }
             SwitchLight();
@@ -42,6 +50,10 @@ public class SwitchLights : MonoBehaviour
         for (int i = 0; i < normalColor.Length; i++)
         {
             normalColor[i].material = lightOffMaterial;
+        }
+        for (int i = 0; i < lightColor.Length; i++)
+        {
+            lightColor[i].SetActive(false);
         }
     }
 }
