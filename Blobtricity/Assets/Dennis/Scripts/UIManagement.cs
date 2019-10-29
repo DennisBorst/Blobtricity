@@ -112,8 +112,11 @@ public class UIManagement : MonoBehaviour
         if(timerHours >= 6 && timerHours <= 6)
         {
             timerUI.color = new Color32(255, 100, 0, 255);
-            timerSource.clip = timerSound;
-            timerSource.Play();
+            if (!timerSource.isPlaying)
+            {
+                timerSource.clip = timerSound;
+                timerSource.Play();
+            }
         }
         else if (timerHours >= 7 && timerHours <= 10)
         {
