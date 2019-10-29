@@ -205,6 +205,66 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2749050242788247793, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465791996158988822, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 12890236048538821, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465067003539162593, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465067003709673624, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465067003426281367, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465067003200760920, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465067004328617364, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465067004433236282, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465067004062814853, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465067004268685681, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465067004284514554, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbbe4b2d24e79ee4eb139c76f9f5a700, type: 3}
 --- !u!1 &8212912631164597091 stripped
