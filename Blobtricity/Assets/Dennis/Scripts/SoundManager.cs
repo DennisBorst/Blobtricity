@@ -14,7 +14,6 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource blobTinderSource2;
     [SerializeField] private AudioSource blobElectroSource;
 
-
     [SerializeField] private AudioClip houseSound;
     [SerializeField] private AudioClip mapSound;
     [SerializeField] private AudioClip[] scaredSound;

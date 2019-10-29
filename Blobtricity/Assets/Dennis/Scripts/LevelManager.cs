@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    [Header("Game Related")]
+    [SerializeField] private float restartDelay;
+
     [Header("Energy")]
     [SerializeField] private int energyReduceGoal;
 
@@ -26,7 +30,7 @@ public class LevelManager : MonoBehaviour
         playerGameObject.SetActive(false);
         mouseManager.EnableMouse();
 
-        if (_energyReduced <= 0)
+        if (_energyReduced >= energyReduceGoal)
         {
             WinState();
         }
@@ -46,6 +50,17 @@ public class LevelManager : MonoBehaviour
     {
         loseUI.SetActive(true);
         Debug.Log("You have lost, better luck next time");
+    }
+
+    public void Reload()
+    {
+        StartCoroutine(RespawnTime());
+    }
+
+    IEnumerator RespawnTime()
+    {
+        yield return new WaitForSeconds(restartDelay);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     #region Singleton

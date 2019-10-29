@@ -17,13 +17,22 @@ public class Blob : MonoBehaviour, IUser
     private NavMeshAgent navMeshAgent;
     [SerializeField] private Animator anim;
 
-    [SerializeField] private bool googleMaps = false;
-    [SerializeField] private bool netflix = false;
-    [SerializeField] private bool gamer = false;
-    [SerializeField] private bool tinder = false;
-    [SerializeField] private bool electricity = false;
+    public GameObject blobIcon;
+
+    [Space]
+    [SerializeField] private GameObject particleSurprise;
+    [SerializeField] private GameObject particleDone;
+
+    [Space]
+    public bool googleMaps = false;
+    public bool netflix = false;
+    public bool gamer = false;
+    public bool tinder = false;
+    public bool electricity = false;
     [SerializeField] private bool happyBlob = false;
     [SerializeField] private bool thisBlob = false;
+    [SerializeField] private bool isBusy = false;
+
     private bool isDone;
 
     [SerializeField] private Transform[] cinemaPoints;
@@ -38,10 +47,11 @@ public class Blob : MonoBehaviour, IUser
     Transform[] IUser.tinderBlobs => tinderBlobs;
     bool IUser.isDone => isDone;
     bool IUser.isNetflix => netflix;
-
+    bool IUser.isBusy => isBusy;
 
     PlayerControls IUser.playerControls => playerControls;
     Blob IUser.blob => blob;
+
 
     private void Awake()
     {
@@ -84,24 +94,33 @@ public class Blob : MonoBehaviour, IUser
             isDone = true;
         }
 
-        else if (Input.GetKeyUp(KeyCode.E))
+        else if (Input.GetKeyUp(KeyCode.E) || Input.GetKeyUp(KeyCode.Mouse0))
         {
             if (googleMaps == true && playerControls.isBusy == false)
             {
                 playerControls.isBusy = true;
+                isBusy = true;
                 SoundManager.Instance.PlayBlobSound();
+                particleSurprise.SetActive(true);
+                UIManagement.Instance.PlaceArrow();
                 fsm.SwitchState(StateEnum.Idle);
                 fsm.SwitchState(StateEnum.Follow);
             }
             else if (netflix == true && playerControls.isBusy == false)
             {
                 playerControls.isBusy = true;
+                isBusy = true;
+                particleSurprise.SetActive(true);
+                UIManagement.Instance.PlaceArrow();
                 SoundManager.Instance.PlayBlobSound();
                 fsm.SwitchState(StateEnum.Netflix);
             }
             else if (gamer == true && playerControls.isBusy == false)
             {
                 playerControls.isBusy = true;
+                isBusy = true;
+                particleSurprise.SetActive(true);
+                UIManagement.Instance.PlaceArrow();
                 SoundManager.Instance.PlayBlobSound();
                 fsm.SwitchState(StateEnum.Netflix);
             }
@@ -109,6 +128,8 @@ public class Blob : MonoBehaviour, IUser
             {
                 playerControls.isBusy = true;
                 thisBlob = true;
+                isBusy = true;
+                particleSurprise.SetActive(true);
                 SoundManager.Instance.PlayBlobSound();
                 fsm.SwitchState(StateEnum.Tinder);
                 tinder = false;
@@ -116,6 +137,7 @@ public class Blob : MonoBehaviour, IUser
             if (electricity == true && playerControls.isBusy == false)
             {
                 playerControls.isBusy = true;
+                particleSurprise.SetActive(true);
                 SoundManager.Instance.PlayElectroBlob();
                 canvas.enabled = false;
                 fsm.SwitchState(StateEnum.Electricity);
@@ -125,10 +147,16 @@ public class Blob : MonoBehaviour, IUser
 
     void IUser.IsBusyFlip()
     {
-        playerControls.isBusy = !playerControls.isBusy;
+        playerControls.isBusy = false;
         playerControls.stoppedBlob = false;
         electricity = false;
         thisBlob = false;
+        isBusy = false;
+    }
+
+    public void PlayParticles()
+    {
+        particleDone.SetActive(true);
     }
 
     private void Animations()
@@ -136,6 +164,7 @@ public class Blob : MonoBehaviour, IUser
         if (fsm.currentState == fsm.states[StateEnum.Follow] || fsm.currentState == fsm.states[StateEnum.Netflix] || fsm.currentState == fsm.states[StateEnum.Tinder])
         {
             anim.SetTrigger("isFollowing");
+            
         }
         else if (fsm.currentState == fsm.states[StateEnum.Walk])
         {
@@ -148,18 +177,15 @@ public class Blob : MonoBehaviour, IUser
                 anim.SetTrigger("isWalking");
             }
 
-            //anim.SetBool("isWalking", true);
-            //anim.SetBool("isIdle", false);
-
             Debug.Log("Walking State animation");
         }
         else if (fsm.currentState == fsm.states[StateEnum.Idle] || fsm.currentState == fsm.states[StateEnum.Electricity])
         {
             anim.SetTrigger("isIdle");
-
-            //anim.SetBool("isIdle", true);
-            //anim.SetBool("isWalking", false);
-
+            if (!playerControls.isBusy)
+            {
+                anim.SetTrigger("stoppedFollowing");
+            }
             Debug.Log("Idle State animation");
         }
         else if(fsm.currentState == fsm.states[StateEnum.Done])

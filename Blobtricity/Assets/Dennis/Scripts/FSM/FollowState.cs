@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class FollowState : State
 {
-    private int decreaseEnergy = 35;
+    private int decreaseEnergy = 50;
 
     private int maxDistanceToLocation = 3;
     private int maxDistanceToPlayer = 3;
@@ -30,15 +30,17 @@ public class FollowState : State
 
     public override void OnExit()
     {
-        Debug.Log("Exit Time");
-        SpawnManager.Instance.SpawnHappyBlob(1);
-        SpawnManager.Instance.SpawnTree();
+        UIManagement.Instance.DestroyDestinationVisual();
         _iUser.IsBusyFlip();
-
     }
 
     public override void OnUpdate()
     {
+        if (!_iUser.playerControls.isBusy)
+        {
+            fsm.SwitchState(StateEnum.Idle);
+        }
+
         Following();
     }
 
@@ -50,8 +52,10 @@ public class FollowState : State
 
         if (_iUser.transform.position == finalPostion || distanceToLocation <= maxDistanceToLocation)
         {
+            SpawnManager.Instance.SpawnHappyBlob(1);
+            SpawnManager.Instance.SpawnTree();
+
             UIManagement.Instance.DecreaseEnergy(decreaseEnergy);
-            UIManagement.Instance.DestroyDestinationVisual();
 
             SoundManager.Instance.PlayHappyBlob();
             fsm.SwitchState(StateEnum.Done);

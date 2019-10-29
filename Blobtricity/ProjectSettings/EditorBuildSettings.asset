@@ -8,4 +8,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Dennis/Dennis.unity
     guid: 4201c559cd9b68f4b922cc529c13aeef
+  - enabled: 1
+    path: Assets/Main/MainMenu.unity
+    guid: f59c79804744d0c4d9046d6eb10474e4
+  - enabled: 1
+    path: Assets/Main/BeginScene.unity
+    guid: ccf6ad94af7b2e74297ac818700bd8cf
+  - enabled: 1
+    path: Assets/Main/LevelEasy.unity
+    guid: 54fcc21a9bbe7c34899a99672723a4a8
+  - enabled: 1
+    path: Assets/Main/LevelNormal.unity
+    guid: d6bc91801561c514cbef2ebf4bfc61e9
+  - enabled: 1
+    path: Assets/Main/LevelHard.unity
+    guid: 38c87573de621774b8aa5477169860a1
+  - enabled: 1
+    path: Assets/Main/EndScene.unity
+    guid: 0d2bb00f2d1ec4b4fa9baa2d5b666527
   m_configObjects: {}

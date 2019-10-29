@@ -6,7 +6,8 @@ using UnityEngine.AI;
 
 public class NetflixState : State
 {
-    private int decreaseEnergy = 40;
+    private int decreaseEnergyNetflix = 80;
+    private int decreaseEnergyGamer = 60;
 
     private int maxDistanceToLocation = 3;
     private int maxDistanceToPlayer = 3;
@@ -17,7 +18,6 @@ public class NetflixState : State
     private float goalRadius = 50;
     private Vector3 finalPostion;
 
-    private bool destinationReached = false;
     private float nearestCinema;
 
 
@@ -34,23 +34,17 @@ public class NetflixState : State
 
     public override void OnExit()
     {
-        SpawnManager.Instance.SpawnHappyBlob(2);
-        SpawnManager.Instance.SpawnTree();
+        UIManagement.Instance.DestroyDestinationVisual();
         _iUser.IsBusyFlip();
     }
 
     public override void OnUpdate()
     {
-        
-        if (!destinationReached)
+        if (!_iUser.playerControls.isBusy)
         {
-            Following();
+            fsm.SwitchState(StateEnum.Idle);
         }
-        else
-        {
-            DestinationReached();
-        }
-        
+        Following();
     }
 
     private void Following()
@@ -62,16 +56,25 @@ public class NetflixState : State
 
         if (_iUser.transform.position == finalPostion || distanceToLocation <= maxDistanceToLocation)
         {
-            UIManagement.Instance.DecreaseEnergy(decreaseEnergy);
-            UIManagement.Instance.DestroyDestinationVisual();
-            Debug.Log("I have reached my destination");
-            destinationReached = true;
+            SpawnManager.Instance.SpawnHappyBlob(2);
+            SpawnManager.Instance.SpawnTree();
+
+            if (_iUser.isNetflix)
+            {
+                UIManagement.Instance.DecreaseEnergy(decreaseEnergyNetflix);
+            }
+            else
+            {
+                UIManagement.Instance.DecreaseEnergy(decreaseEnergyGamer);
+            }
+
+            SoundManager.Instance.PlayHappyBlob();
+            fsm.SwitchState(StateEnum.Done);
         }
 
         if (distanceToPlayer >= maxDistanceToPlayer)
         {
             _iUser.navMeshAgent.destination = PlayerPosition.Instance.transform.position;
-            //_iUser.navMeshAgent.destination = finalPostion;
         }
     }
 
@@ -123,12 +126,5 @@ public class NetflixState : State
             }
         }
         return nearestCinema;
-    }
-
-    private void DestinationReached()
-    {
-        SoundManager.Instance.PlayHappyBlob();
-        fsm.SwitchState(StateEnum.Done);
-        Debug.Log("I have made it to my destination");
     }
 }

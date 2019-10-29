@@ -8,12 +8,23 @@ public class UIManagement : MonoBehaviour
 {
     [Header("Time Related")]
     [SerializeField] private TextMeshProUGUI timerUI;
+    [SerializeField] private AudioClip timerSound;
+    private AudioSource timerSource;
     private float timer;
     private int timerMinutes;
     private int timerHours;
 
+    [Header("Map related")]
+    [SerializeField] private GameObject arrowMapImage;
+
+    [Header("tree related")]
+    [SerializeField] private TextMeshProUGUI treeText;
+    [SerializeField] private GameObject treeTextObject;
+
     [Header("Energy Related")]
     [SerializeField] private Slider energySlider;
+    [SerializeField] private TextMeshProUGUI energyText;
+    [SerializeField] private GameObject energyTextObject;
     [SerializeField] private TextMeshProUGUI energyPercentageUI;
     [SerializeField] private float maxEnergySliderValue;
     [Space]
@@ -25,13 +36,17 @@ public class UIManagement : MonoBehaviour
 
     [Header("Danger related")]
     [SerializeField] private Slider dangerSlider;
+    [SerializeField] private TextMeshProUGUI dangerText;
+    [SerializeField] private GameObject dangerTextObject;
     [SerializeField] private TextMeshProUGUI dangerPercentageUI;
     [SerializeField] private float maxDangerSliderValue;
-    private float currentDangerSliderValue;
+    [SerializeField]private float currentDangerSliderValue;
     private float dangerPercentage;
 
     [Header("Sustainable related")]
     [SerializeField] private Slider sustainableSlider;
+    [SerializeField] private TextMeshProUGUI sustainableText;
+    [SerializeField] private GameObject sustainableTextObject;
     [SerializeField] private TextMeshProUGUI sustainablePercentageUI;
     [SerializeField] private float maxSustainableSliderValue;
     private float currentSustainableSliderValue;
@@ -47,12 +62,24 @@ public class UIManagement : MonoBehaviour
     [SerializeField] private GameObject finalDestinationNetflix;
     [SerializeField] private GameObject finalDestinationGamer;
 
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem energyParticles; 
+    [SerializeField] private ParticleSystem sustainableParticles;
+    [SerializeField] private ParticleSystem dangerParticles;
+
     private void Start()
     {
-        //Energy bar
+        /*
+        //Energy bar decrease
         energySlider.maxValue = maxEnergySliderValue;
         energySlider.value = maxEnergySliderValue;
         currentEnergySliderValue = maxEnergySliderValue;
+        */
+
+        //Energy bar increase
+        energySlider.maxValue = maxEnergySliderValue;
+        energySlider.value = 0;
+        currentEnergySliderValue = 0;
 
         //Danger bar
         dangerSlider.maxValue = maxDangerSliderValue;
@@ -82,6 +109,17 @@ public class UIManagement : MonoBehaviour
 
     private void Update()
     {
+        if(timerHours >= 6 && timerHours <= 6)
+        {
+            timerUI.color = new Color32(255, 100, 0, 255);
+            timerSource.clip = timerSound;
+            timerSource.Play();
+        }
+        else if (timerHours >= 7 && timerHours <= 10)
+        {
+            timerUI.color = new Color32(255, 0, 0, 255);
+        }
+
         if (timerHours >= 8 && timerHours <= 10)
         {
             LevelManager.Instance.FinishLevel(currentEnergySliderValue);
@@ -97,17 +135,22 @@ public class UIManagement : MonoBehaviour
     //Everything about the EnergySlider
     public void DecreaseEnergy(int energyDecreased)
     {
-        currentEnergySliderValue -= energyDecreased;
-        energySlider.value -= energyDecreased;
+        currentEnergySliderValue += energyDecreased;
+        energySlider.value += energyDecreased;
         energyPercentage = ((currentEnergySliderValue / maxEnergySliderValue) * 100);
    
         energyPercentageUI.text = energyPercentage.ToString() + "%";
+
+        energyText.text = "energy reduced: " + energyDecreased;
+        energyTextObject.SetActive(true);
+
+        energyParticles.Play();
     }
 
     public void EnergyDecreaseOvertime()
     {
-        currentEnergySliderValue -= (energyOvertimeDecrease * overtimeEnergySpeed);
-        energySlider.value -= (energyOvertimeDecrease * overtimeEnergySpeed);
+        currentEnergySliderValue += (energyOvertimeDecrease * overtimeEnergySpeed);
+        energySlider.value += (energyOvertimeDecrease * overtimeEnergySpeed);
 
         energyPercentage = ((currentEnergySliderValue / maxEnergySliderValue) * 100);
 
@@ -123,6 +166,16 @@ public class UIManagement : MonoBehaviour
         dangerPercentage = ((currentDangerSliderValue / maxDangerSliderValue) * 100);
 
         dangerPercentageUI.text = dangerPercentage.ToString() + "%";
+
+        if(currentDangerSliderValue >= maxDangerSliderValue)
+        {
+            LevelManager.Instance.Reload();
+        }
+
+        dangerText.text = "danger increased: " + dangerIncreased;
+        dangerTextObject.SetActive(true);
+
+        dangerParticles.Play();
     }
 
     public void IncreaseSustainable(int sustainableIncreased)
@@ -132,6 +185,22 @@ public class UIManagement : MonoBehaviour
         sustainablePercentage = ((currentSustainableSliderValue / maxSustainableSliderValue) * 100);
 
         sustainablePercentageUI.text = sustainablePercentage.ToString() + "%";
+
+        sustainableText.text = "a new windmill is placed";
+        sustainableTextObject.SetActive(true);
+
+        sustainableParticles.Play();
+    }
+
+    public void PlacedTree()
+    {
+        treeText.text = "a tree is grown";
+        treeTextObject.SetActive(true);
+    }
+
+    public void PlaceArrow()
+    {
+        arrowMapImage.SetActive(true);
     }
 
     private void TimeManagement()
@@ -207,6 +276,7 @@ public class UIManagement : MonoBehaviour
 
     private void Awake()
     {
+        timerSource = GetComponent<AudioSource>();
         instance = this;
     }
 

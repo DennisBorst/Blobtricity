@@ -155,6 +155,46 @@ PrefabInstance:
       propertyPath: lightColor.Array.data[11]
       value: 
       objectReference: {fileID: 6937625102873985534}
+    - target: {fileID: 6972099962144500216, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: increaseDanger
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972099962144500216, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: electricityIcons
+      value: 
+      objectReference: {fileID: 141945659043179608}
+    - target: {fileID: 7101454883718614211, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101454883718614211, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: MinDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101454883718614211, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101454883718614211, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4589f52ec3c08924c8324eb1eedee580, type: 3}
+    - target: {fileID: 7101454883718614211, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101454883718614211, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8091391508570726905, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
         type: 3}
       propertyPath: m_IsActive
@@ -165,26 +205,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7101454883718614211, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
-        type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7101454883718614211, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
-        type: 3}
-      propertyPath: MinDistance
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7101454883718614211, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
-        type: 3}
-      propertyPath: MaxDistance
-      value: 15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbbe4b2d24e79ee4eb139c76f9f5a700, type: 3}
 --- !u!1 &8212912631164597091 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6666839382692624573, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
+    type: 3}
+  m_PrefabInstance: {fileID: 3278479373352045534}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &141945659043179608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3208591866982655878, guid: dbbe4b2d24e79ee4eb139c76f9f5a700,
     type: 3}
   m_PrefabInstance: {fileID: 3278479373352045534}
   m_PrefabAsset: {fileID: 0}

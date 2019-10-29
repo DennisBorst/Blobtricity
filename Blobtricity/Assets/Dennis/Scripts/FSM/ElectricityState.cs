@@ -20,6 +20,7 @@ public class ElectricityState : State
         UIManagement.Instance.energyOvertimeDecrease++;
         UIManagement.Instance.IncreaseSustainable(25);
         SpawnManager.Instance.SpawnTree();
+        UIManagement.Instance.PlacedTree();
         _iUser.navMeshAgent.destination = _iUser.transform.position;
     }
 

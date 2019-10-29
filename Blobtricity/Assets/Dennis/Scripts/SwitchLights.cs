@@ -14,6 +14,7 @@ public class SwitchLights : MonoBehaviour
     [SerializeField] private Material lightOffMaterial;
     [SerializeField] private MeshRenderer[] normalColor;
     [SerializeField] private GameObject[] lightColor;
+    [SerializeField] private GameObject electricityIcons;
 
     private Animator animationSwitch;
     private bool lightSwitched = false;
@@ -34,7 +35,7 @@ public class SwitchLights : MonoBehaviour
             }
 
             uiManagement.DecreaseEnergy(decreaseEnergy);
-            //SoundManager.Instance.PlayHouseSound();
+            SoundManager.Instance.PlayHouseSound();
 
             if (danger)
             {
@@ -55,5 +56,6 @@ public class SwitchLights : MonoBehaviour
         {
             lightColor[i].SetActive(false);
         }
+        electricityIcons.SetActive(false);
     }
 }

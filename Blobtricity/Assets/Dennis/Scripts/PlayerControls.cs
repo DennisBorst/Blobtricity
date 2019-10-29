@@ -29,6 +29,10 @@ public class PlayerControls : MonoBehaviour
 
     private void CheckMap()
     {
+        if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
+            isBusy = false;
+        }
         if (Input.GetKeyUp(KeyCode.M) || Input.GetKeyUp(KeyCode.Q))
         {
             SoundManager.Instance.PlayMapSound();

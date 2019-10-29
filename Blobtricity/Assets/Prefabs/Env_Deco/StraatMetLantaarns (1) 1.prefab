@@ -97,18 +97,18 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5f43647a0376d4b49aa84a1228a6bdcb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4589f52ec3c08924c8324eb1eedee580, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.02
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 4
-  MaxDistance: 15
+  MinDistance: 3
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiManagement: {fileID: 0}
   decreaseEnergy: 25
-  increaseDanger: 20
+  increaseDanger: 10
   danger: 1
   lightOnMaterial: {fileID: 2100000, guid: 601873245173ce74ba896652692aed0a, type: 2}
   lightOffMaterial: {fileID: 2100000, guid: 02a0986a1f0d9dc4a83ae0c03e94b350, type: 2}
@@ -215,6 +215,7 @@ MonoBehaviour:
   - {fileID: 160181605114075157}
   - {fileID: 4606463214430516934}
   lightColor: []
+  electricityIcons: {fileID: 3208591866982655878}
 --- !u!1001 &1531604033556436581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -374,6 +375,12 @@ GameObject:
 --- !u!4 &7700599836506884782 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8514541613358811130, guid: e592d5799fbbb3c448490ca078c1b84e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2087344468853525844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3208591866982655878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3490441382232943314, guid: e592d5799fbbb3c448490ca078c1b84e,
     type: 3}
   m_PrefabInstance: {fileID: 2087344468853525844}
   m_PrefabAsset: {fileID: 0}
@@ -851,15 +858,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5f10eb771b53884a8995f257389cde8, type: 3}
---- !u!4 &2472505242843550585 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7963490169723153244, guid: d5f10eb771b53884a8995f257389cde8,
-    type: 3}
-  m_PrefabInstance: {fileID: 5536078939582298149}
-  m_PrefabAsset: {fileID: 0}
 --- !u!23 &6605751390723470933 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1691186952974339696, guid: d5f10eb771b53884a8995f257389cde8,
+    type: 3}
+  m_PrefabInstance: {fileID: 5536078939582298149}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2472505242843550585 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7963490169723153244, guid: d5f10eb771b53884a8995f257389cde8,
     type: 3}
   m_PrefabInstance: {fileID: 5536078939582298149}
   m_PrefabAsset: {fileID: 0}

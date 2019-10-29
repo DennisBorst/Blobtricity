@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class TinderState : State
 {
-    private int decreaseEnergy = 60;
+    private int decreaseEnergy = 70;
 
     private int maxDistanceToLocation = 3;
     private int maxDistanceToPlayer = 3;
@@ -29,20 +29,20 @@ public class TinderState : State
     public override void OnEnter(IUser _iUser)
     {
         base.OnEnter(_iUser);
-        //SetDestination();
     }
 
     public override void OnExit()
     {
-        Debug.Log("Exit Time");
-        SpawnManager.Instance.SpawnHappyBlob(3);
-        SpawnManager.Instance.SpawnTree();
         _iUser.IsBusyFlip();
     }
 
     public override void OnUpdate()
     {
-        
+        if (!_iUser.playerControls.isBusy)
+        {
+            fsm.SwitchState(StateEnum.Idle);
+        }
+
         if (!destinationReached && !_iUser.playerControls.stoppedBlob)
         {
             SetDestination();
@@ -65,8 +65,10 @@ public class TinderState : State
         {
             UIManagement.Instance.DecreaseEnergy(decreaseEnergy);
             SoundManager.Instance.PlayTinderBlob();
+
+            SpawnManager.Instance.SpawnHappyBlob(3);
+            SpawnManager.Instance.SpawnTree();
             fsm.SwitchState(StateEnum.Done);
-            Debug.Log("I have reached my destination");
             return;
         }
 
