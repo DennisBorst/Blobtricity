@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Main/LevelNormal.unity
+- path: Assets/Vanessa/Vanessa.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
