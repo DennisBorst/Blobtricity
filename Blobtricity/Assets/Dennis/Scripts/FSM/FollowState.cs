@@ -26,11 +26,13 @@ public class FollowState : State
     {
         base.OnEnter(_iUser);
         SetDestination();
+        _iUser.navMeshAgent.speed = 5;
     }
 
     public override void OnExit()
     {
         UIManagement.Instance.DestroyDestinationVisual();
+        _iUser.navMeshAgent.speed = 3.5f;
         _iUser.IsBusyFlip();
     }
 

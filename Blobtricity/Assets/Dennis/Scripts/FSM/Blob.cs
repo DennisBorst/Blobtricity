@@ -18,6 +18,8 @@ public class Blob : MonoBehaviour, IUser
     [SerializeField] private Animator anim;
 
     public GameObject blobIcon;
+    public GameObject tinderText;
+    public Animator tinderAnim;
 
     [Space]
     [SerializeField] private GameObject particleSurprise;
@@ -72,7 +74,11 @@ public class Blob : MonoBehaviour, IUser
         {
             tinder = false;
             anim.SetTrigger("isLoving");
-            fsm.SwitchState(StateEnum.Done);
+            if (!tinderAnim.GetCurrentAnimatorStateInfo(0).IsName("FinishLove"))
+            {
+                tinderText.SetActive(false);
+                fsm.SwitchState(StateEnum.Done);
+            }
             Debug.Log("I found my tinder date :D");
         }
 
@@ -87,9 +93,10 @@ public class Blob : MonoBehaviour, IUser
     private void OnTriggerStay(Collider other)
     {
 
-        if (tinder == true && playerControls.isBusy && !thisBlob && !playerControls.stoppedBlob)
+        if (tinder == true && playerControls.isBusy && !thisBlob && !playerControls.stoppedBlob && playerControls.isTinderBusy)
         {
             playerControls.stoppedBlob = true;
+            tinderAnim.SetTrigger("LoveFinished");
             SoundManager.Instance.PlayBlobSound();
             isDone = true;
         }
@@ -126,7 +133,12 @@ public class Blob : MonoBehaviour, IUser
             }
             else if (tinder == true && playerControls.isBusy == false)
             {
+                if(tinderText != null)
+                {
+                    tinderText.SetActive(true);
+                }
                 playerControls.isBusy = true;
+                playerControls.isTinderBusy = true;
                 thisBlob = true;
                 isBusy = true;
                 particleSurprise.SetActive(true);
@@ -149,6 +161,7 @@ public class Blob : MonoBehaviour, IUser
     {
         playerControls.isBusy = false;
         playerControls.stoppedBlob = false;
+        playerControls.isTinderBusy = false;
         electricity = false;
         thisBlob = false;
         isBusy = false;

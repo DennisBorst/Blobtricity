@@ -18,6 +18,7 @@ public class TinderState : State
     private Vector3 finalPostion;
 
     private bool destinationReached = false;
+    private bool drawDestination = false;
     private float nearestBlob;
 
 
@@ -29,10 +30,16 @@ public class TinderState : State
     public override void OnEnter(IUser _iUser)
     {
         base.OnEnter(_iUser);
+        _iUser.navMeshAgent.speed = 5;
     }
 
     public override void OnExit()
     {
+        UIManagement.Instance.DestroyDestinationVisual();
+        _iUser.blob.tinderAnim.SetTrigger("LoveFinished");
+
+        _iUser.blob.tinderText.SetActive(false);
+        _iUser.navMeshAgent.speed = 3.5f;
         _iUser.IsBusyFlip();
     }
 
@@ -50,6 +57,10 @@ public class TinderState : State
         }
         else if(!destinationReached && _iUser.playerControls.stoppedBlob)
         {
+            if (!drawDestination)
+            {
+                UIManagement.Instance.DrawDestinationVisual(finalPostion, 4);
+            }   
             Following();
         }
     }

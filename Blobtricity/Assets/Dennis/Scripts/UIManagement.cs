@@ -61,6 +61,7 @@ public class UIManagement : MonoBehaviour
     [SerializeField] private GameObject finalDestinationGoogleMaps;
     [SerializeField] private GameObject finalDestinationNetflix;
     [SerializeField] private GameObject finalDestinationGamer;
+    [SerializeField] private GameObject finalDestinationTinder;
 
     [Header("Particles")]
     [SerializeField] private ParticleSystem energyParticles; 
@@ -264,6 +265,11 @@ public class UIManagement : MonoBehaviour
             finalDestinationGamer.transform.position = new Vector3(destination.x, destination.y + 2f, destination.z);
             finalDestinationGamer.SetActive(true);
         }
+        else if(state == 4)
+        {
+            finalDestinationTinder.transform.position = new Vector3(destination.x, destination.y + 0.8f, destination.z);
+            finalDestinationTinder.SetActive(true);
+        }
     }
 
     public void DestroyDestinationVisual()
@@ -271,6 +277,7 @@ public class UIManagement : MonoBehaviour
         finalDestinationGoogleMaps.SetActive(false);
         finalDestinationNetflix.SetActive(false);
         finalDestinationGamer.SetActive(false);
+        finalDestinationTinder.SetActive(false);
     }
 
 

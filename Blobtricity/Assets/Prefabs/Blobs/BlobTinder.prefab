@@ -151,6 +151,8 @@ MonoBehaviour:
   playerControls: {fileID: 0}
   anim: {fileID: 1974394046234843343}
   blobIcon: {fileID: 9159441032139663563}
+  tinderText: {fileID: 0}
+  tinderAnim: {fileID: 0}
   particleSurprise: {fileID: 1130141662926902470}
   particleDone: {fileID: 7179140892475046940}
   googleMaps: 0
@@ -468,21 +470,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2133377532596211978, guid: dc7f9710bc661584c986f971371aa74d,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2133377532596211978, guid: dc7f9710bc661584c986f971371aa74d,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.6666667
-      objectReference: {fileID: 0}
-    - target: {fileID: 2133377532596211978, guid: dc7f9710bc661584c986f971371aa74d,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 3160728279769395339, guid: dc7f9710bc661584c986f971371aa74d,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -563,11 +550,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.13414927
       objectReference: {fileID: 0}
-    - target: {fileID: 8291483506805505136, guid: dc7f9710bc661584c986f971371aa74d,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 2712b90b79d140e4c9e99dcbb4c09308, type: 2}
     - target: {fileID: 7517477495023950883, guid: dc7f9710bc661584c986f971371aa74d,
         type: 3}
       propertyPath: m_LocalRotation.x
