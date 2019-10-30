@@ -113,6 +113,7 @@ public class UIManagement : MonoBehaviour
         if(timerHours >= 6 && timerHours <= 6)
         {
             timerUI.color = new Color32(255, 100, 0, 255);
+
             if (!timerSource.isPlaying)
             {
                 timerSource.clip = timerSound;
@@ -122,6 +123,12 @@ public class UIManagement : MonoBehaviour
         else if (timerHours >= 7 && timerHours <= 10)
         {
             timerUI.color = new Color32(255, 0, 0, 255);
+
+            if (!timerSource.isPlaying)
+            {
+                timerSource.clip = timerSound;
+                timerSource.Play();
+            }
         }
 
         if (timerHours >= 8 && timerHours <= 10)
@@ -173,7 +180,7 @@ public class UIManagement : MonoBehaviour
 
         if(currentDangerSliderValue >= maxDangerSliderValue)
         {
-            LevelManager.Instance.Reload();
+            LevelManager.Instance.LoseState(2);
         }
 
         dangerText.text = "danger increased: " + dangerIncreased;

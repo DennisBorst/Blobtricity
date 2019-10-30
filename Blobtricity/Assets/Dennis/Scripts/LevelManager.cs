@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
@@ -19,6 +20,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject uiCamera;
     [SerializeField] private GameObject winUI;
     [SerializeField] private GameObject loseUI;
+    [SerializeField] private TextMeshProUGUI loseUIText;
+
     [SerializeField] private GameObject playerGameObject;
 
     [Header("Other")]
@@ -36,7 +39,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            LoseState();
+            LoseState(1);
         }
     }
 
@@ -46,9 +49,21 @@ public class LevelManager : MonoBehaviour
         Debug.Log("You have won!!!");
     }
 
-    private void LoseState()
+    public void LoseState(int state)
     {
+        uiCamera.SetActive(true);
+        playerGameObject.SetActive(false);
+        mouseManager.EnableMouse();
+
         loseUI.SetActive(true);
+        if(state == 1)
+        {
+            loseUIText.text = "The city used to much electricity!!! Inhabitants keep being phone zombies!";
+        }
+        else if(state == 2)
+        {
+            loseUIText.text = "The city became to dangerous!!! Inhabitants are running around in panic!";
+        }
         Debug.Log("You have lost, better luck next time");
     }
 
