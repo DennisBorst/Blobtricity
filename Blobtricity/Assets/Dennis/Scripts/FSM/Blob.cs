@@ -25,6 +25,9 @@ public class Blob : MonoBehaviour, IUser
     [SerializeField] private GameObject particleSurprise;
     [SerializeField] private GameObject particleDone;
 
+    [Header("Color Switch blob")]
+    [SerializeField] private SkinnedMeshRenderer renderer;
+
     [Space]
     public bool googleMaps = false;
     public bool netflix = false;
@@ -32,7 +35,8 @@ public class Blob : MonoBehaviour, IUser
     public bool tinder = false;
     public bool electricity = false;
     [SerializeField] private bool happyBlob = false;
-    [SerializeField] private bool thisBlob = false;
+    public bool thisBlob = false;
+    //public bool ditchedBlob = false;
     [SerializeField] private bool isBusy = false;
 
     private bool isDone;
@@ -76,7 +80,7 @@ public class Blob : MonoBehaviour, IUser
             anim.SetTrigger("isLoving");
             if (!tinderAnim.GetCurrentAnimatorStateInfo(0).IsName("FinishLove"))
             {
-                tinderText.SetActive(false);
+                //tinderText.SetActive(false);
                 fsm.SwitchState(StateEnum.Done);
             }
             Debug.Log("I found my tinder date :D");
@@ -87,6 +91,7 @@ public class Blob : MonoBehaviour, IUser
             fsm.OnUpdate();
 
             Animations();
+            //DitchBlob();
         }
     }
 
@@ -96,7 +101,7 @@ public class Blob : MonoBehaviour, IUser
         if (tinder == true && playerControls.isBusy && !thisBlob && !playerControls.stoppedBlob && playerControls.isTinderBusy)
         {
             playerControls.stoppedBlob = true;
-            tinderAnim.SetTrigger("LoveFinished");
+            //tinderAnim.SetTrigger("LoveFinished");
             SoundManager.Instance.PlayBlobSound();
             isDone = true;
         }
@@ -105,7 +110,9 @@ public class Blob : MonoBehaviour, IUser
         {
             if (googleMaps == true && playerControls.isBusy == false)
             {
+                playerControls.followBlobUI.SetActive(true);
                 playerControls.isBusy = true;
+                thisBlob = true;
                 isBusy = true;
                 SoundManager.Instance.PlayBlobSound();
                 particleSurprise.SetActive(true);
@@ -115,7 +122,9 @@ public class Blob : MonoBehaviour, IUser
             }
             else if (netflix == true && playerControls.isBusy == false)
             {
+                playerControls.followBlobUI.SetActive(true);
                 playerControls.isBusy = true;
+                thisBlob = true;
                 isBusy = true;
                 particleSurprise.SetActive(true);
                 UIManagement.Instance.PlaceArrow();
@@ -124,7 +133,9 @@ public class Blob : MonoBehaviour, IUser
             }
             else if (gamer == true && playerControls.isBusy == false)
             {
+                playerControls.followBlobUI.SetActive(true);
                 playerControls.isBusy = true;
+                thisBlob = true;
                 isBusy = true;
                 particleSurprise.SetActive(true);
                 UIManagement.Instance.PlaceArrow();
@@ -133,7 +144,8 @@ public class Blob : MonoBehaviour, IUser
             }
             else if (tinder == true && playerControls.isBusy == false)
             {
-                if(tinderText != null)
+                playerControls.followBlobUI.SetActive(true);
+                if (tinderText != null)
                 {
                     tinderText.SetActive(true);
                 }
@@ -165,6 +177,8 @@ public class Blob : MonoBehaviour, IUser
         electricity = false;
         thisBlob = false;
         isBusy = false;
+        //ditchedBlob = false;
+
     }
 
     public void PlayParticles()
@@ -177,7 +191,16 @@ public class Blob : MonoBehaviour, IUser
         if (fsm.currentState == fsm.states[StateEnum.Follow] || fsm.currentState == fsm.states[StateEnum.Netflix] || fsm.currentState == fsm.states[StateEnum.Tinder])
         {
             anim.SetTrigger("isFollowing");
-            
+        }
+        
+        else if (fsm.currentState == fsm.states[StateEnum.Idle] || fsm.currentState == fsm.states[StateEnum.Electricity])
+        {
+            anim.SetTrigger("isIdle");
+            if (!playerControls.isBusy)
+            {
+                anim.SetTrigger("stoppedFollowing");
+            }
+            Debug.Log("Idle State animation");
         }
         else if (fsm.currentState == fsm.states[StateEnum.Walk])
         {
@@ -192,18 +215,29 @@ public class Blob : MonoBehaviour, IUser
 
             Debug.Log("Walking State animation");
         }
-        else if (fsm.currentState == fsm.states[StateEnum.Idle] || fsm.currentState == fsm.states[StateEnum.Electricity])
-        {
-            anim.SetTrigger("isIdle");
-            if (!playerControls.isBusy)
-            {
-                anim.SetTrigger("stoppedFollowing");
-            }
-            Debug.Log("Idle State animation");
-        }
         else if(fsm.currentState == fsm.states[StateEnum.Done])
         {
             anim.SetTrigger("isDone");
         }
     }  
+
+    public void SwitchColor()
+    {
+        if(renderer != null)
+        {
+            renderer.materials[1].color = Color.green;
+        }
+    }
+    /*
+    private void DitchBlob()
+    {
+        if (playerControls.isBusy)
+        {
+            if (Input.GetKeyUp(KeyCode.Mouse1))
+            {
+                ditchedBlob = true;
+            }
+        }
+    }
+    */
 }

@@ -37,6 +37,8 @@ public class TinderState : State
     {
         UIManagement.Instance.DestroyDestinationVisual();
         _iUser.blob.tinderAnim.SetTrigger("LoveFinished");
+        _iUser.blob.tinderText.SetActive(false);
+        _iUser.playerControls.followBlobUI.SetActive(false);
 
         _iUser.blob.tinderText.SetActive(false);
         _iUser.navMeshAgent.speed = 3.5f;

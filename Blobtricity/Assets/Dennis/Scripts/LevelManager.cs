@@ -43,8 +43,12 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void WinState()
+    public void WinState()
     {
+        uiCamera.SetActive(true);
+        playerGameObject.SetActive(false);
+        mouseManager.EnableMouse();
+
         winUI.SetActive(true);
         Debug.Log("You have won!!!");
     }
@@ -58,11 +62,11 @@ public class LevelManager : MonoBehaviour
         loseUI.SetActive(true);
         if(state == 1)
         {
-            loseUIText.text = "The city used to much electricity!!! Inhabitants keep being phone zombies!";
+            loseUIText.text = "The city used too much electricity!!! Inhabitants keep being phone zombies!";
         }
         else if(state == 2)
         {
-            loseUIText.text = "The city became to dangerous!!! Inhabitants are running around in panic!";
+            loseUIText.text = "The city became too dangerous!!! Inhabitants are running around in panic!";
         }
         Debug.Log("You have lost, better luck next time");
     }

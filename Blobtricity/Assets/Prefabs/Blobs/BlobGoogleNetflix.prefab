@@ -151,8 +151,11 @@ MonoBehaviour:
   playerControls: {fileID: 0}
   anim: {fileID: 1534828043581354345}
   blobIcon: {fileID: 5333389169153546570}
+  tinderText: {fileID: 0}
+  tinderAnim: {fileID: 0}
   particleSurprise: {fileID: 6265717794032663343}
   particleDone: {fileID: 2625978430208679513}
+  renderer: {fileID: 5939956581864018665}
   googleMaps: 0
   netflix: 1
   gamer: 0
@@ -687,6 +690,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.12971027
       objectReference: {fileID: 0}
+    - target: {fileID: 6545113341976857668, guid: dc7f9710bc661584c986f971371aa74d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5076512495844243494, guid: dc7f9710bc661584c986f971371aa74d,
         type: 3}
       propertyPath: m_LocalRotation.y
@@ -923,6 +931,12 @@ Transform:
 --- !u!95 &1534828043581354345 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8291483506805505136, guid: dc7f9710bc661584c986f971371aa74d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7376203123458542873}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &5939956581864018665 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3761489351521869808, guid: dc7f9710bc661584c986f971371aa74d,
     type: 3}
   m_PrefabInstance: {fileID: 7376203123458542873}
   m_PrefabAsset: {fileID: 0}

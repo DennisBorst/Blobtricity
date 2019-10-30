@@ -247,6 +247,8 @@ MonoBehaviour:
   playerControls: {fileID: 0}
   anim: {fileID: 7779534163345759958}
   blobIcon: {fileID: 8499325030395106586}
+  tinderText: {fileID: 0}
+  tinderAnim: {fileID: 0}
   particleSurprise: {fileID: 4057293141226189429}
   particleDone: {fileID: 5109513570937757038}
   googleMaps: 0
@@ -607,6 +609,11 @@ PrefabInstance:
       value: -0.060669962
       objectReference: {fileID: 0}
     - target: {fileID: 4328963883847290254, guid: dc7f9710bc661584c986f971371aa74d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6337451057422803347, guid: dc7f9710bc661584c986f971371aa74d,
         type: 3}
       propertyPath: m_IsActive
       value: 0

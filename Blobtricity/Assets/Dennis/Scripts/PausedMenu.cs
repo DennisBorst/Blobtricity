@@ -7,6 +7,7 @@ public class PausedMenu : MonoBehaviour
     public GameObject ui;
     public GameObject player;
     public GameObject camera;
+    [HideInInspector] public UnityStandardAssets.Characters.FirstPerson.MouseLook mouseManager;
 
     void Update()
     {
@@ -48,6 +49,7 @@ public class PausedMenu : MonoBehaviour
     public void MainMenu(string levelName)
     {
         Toggle();
+        mouseManager.EnableMouse();
         Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(levelName);
     }

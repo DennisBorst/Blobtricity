@@ -17,6 +17,7 @@ public class DoneState : State
         _iUser.blob.PlayParticles();
         _iUser.blob.blobIcon.SetActive(false);
         UIManagement.Instance.PlacedTree();
+        _iUser.blob.SwitchColor();
 
         _iUser.navMeshAgent.destination = _iUser.transform.position;
         _iUser.blob.googleMaps = false;

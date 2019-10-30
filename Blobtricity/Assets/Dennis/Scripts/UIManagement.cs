@@ -156,6 +156,11 @@ public class UIManagement : MonoBehaviour
         energyTextObject.SetActive(true);
 
         energyParticles.Play();
+
+        if (currentEnergySliderValue >= maxEnergySliderValue)
+        {
+            LevelManager.Instance.WinState();
+        }
     }
 
     public void EnergyDecreaseOvertime()
@@ -167,6 +172,11 @@ public class UIManagement : MonoBehaviour
 
         energyPercentage = Mathf.Round(energyPercentage);
         energyPercentageUI.text = energyPercentage.ToString() + "%";
+
+        if (currentEnergySliderValue >= maxEnergySliderValue)
+        {
+            LevelManager.Instance.WinState();
+        }
     }
 
     //Everything about the DangerSlider

@@ -247,8 +247,11 @@ MonoBehaviour:
   playerControls: {fileID: 0}
   anim: {fileID: 719354762149792047}
   blobIcon: {fileID: 6247448777742213388}
+  tinderText: {fileID: 0}
+  tinderAnim: {fileID: 0}
   particleSurprise: {fileID: 321998304996078012}
   particleDone: {fileID: 3569975179217326378}
+  renderer: {fileID: 5681734768537529007}
   googleMaps: 0
   netflix: 1
   gamer: 0
@@ -923,6 +926,12 @@ Transform:
 --- !u!95 &719354762149792047 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8291483506805505136, guid: dc7f9710bc661584c986f971371aa74d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8857152244203287903}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &5681734768537529007 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3761489351521869808, guid: dc7f9710bc661584c986f971371aa74d,
     type: 3}
   m_PrefabInstance: {fileID: 8857152244203287903}
   m_PrefabAsset: {fileID: 0}

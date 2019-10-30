@@ -36,7 +36,9 @@ public class NetflixState : State
     public override void OnExit()
     {
         UIManagement.Instance.DestroyDestinationVisual();
+        _iUser.playerControls.followBlobUI.SetActive(false);
         _iUser.navMeshAgent.speed = 3.5f;
+        CheckMap.Instance.canvas.SetActive(false);
         _iUser.IsBusyFlip();
     }
 

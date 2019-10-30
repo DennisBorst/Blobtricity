@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
+    public GameObject followBlobUI;
+
     public bool isBusy = false;
     public bool isTinderBusy = false;
     public bool stoppedBlob = false;
@@ -60,4 +62,15 @@ public class PlayerControls : MonoBehaviour
             mapCamera.SetActive(false);
         }
     }
+
+    public void CheckBlobIsFollowing()
+    {
+        followBlobUI.SetActive(true);
+    }
+
+    public void DisableFollowText()
+    {
+        followBlobUI.SetActive(false);
+    }
+
 }

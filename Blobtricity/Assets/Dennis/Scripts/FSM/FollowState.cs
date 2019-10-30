@@ -32,6 +32,9 @@ public class FollowState : State
     public override void OnExit()
     {
         UIManagement.Instance.DestroyDestinationVisual();
+        _iUser.playerControls.followBlobUI.SetActive(false);
+
+        CheckMap.Instance.canvas.SetActive(false);
         _iUser.navMeshAgent.speed = 3.5f;
         _iUser.IsBusyFlip();
     }

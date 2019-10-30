@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Vanessa/Vanessa.unity
+- path: Assets/Main/BeginScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
