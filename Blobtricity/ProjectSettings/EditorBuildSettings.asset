@@ -16,13 +16,13 @@ EditorBuildSettings:
     guid: ccf6ad94af7b2e74297ac818700bd8cf
   - enabled: 1
     path: Assets/Main/LevelEasy.unity
-    guid: 54fcc21a9bbe7c34899a99672723a4a8
+    guid: bdc70b4d2730a1642bbdb72a7cfcea54
   - enabled: 1
     path: Assets/Main/LevelNormal.unity
     guid: d6bc91801561c514cbef2ebf4bfc61e9
   - enabled: 1
     path: Assets/Main/LevelHard.unity
-    guid: 38c87573de621774b8aa5477169860a1
+    guid: 3d88ab1438d952a4796ccf19dd1b4fb5
   - enabled: 1
     path: Assets/Main/EndScene.unity
     guid: 0d2bb00f2d1ec4b4fa9baa2d5b666527
